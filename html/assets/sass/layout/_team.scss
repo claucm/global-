@@ -1,0 +1,260 @@
+.team {
+    position: relative;
+    padding: 4.167vw 0;
+
+    .team-slider {
+        cursor: url('../media/vector/drag-icon.png'), auto;
+        position: relative;
+        z-index: 60;
+        @include media-query(821px) {
+            padding-left: clamp(12px, 2.083vw, 32px);
+        }
+
+        .slick-prev {
+            display: none;
+        }
+
+        .slick-next {
+            display: none;
+        }
+    }
+
+    .team-block {
+        width: 59.635vw;
+        height: auto;
+        margin-right: clamp(16px, 1.25vw, 32px);
+        border-radius: clamp(15px, 1.563vw, 45px);
+        border: 1px solid $accent-2;
+        background: rgba(20, 21, 22, 0.50);
+        backdrop-filter: blur(15px);
+        padding: clamp(12px, 1.25vw, 40px);
+
+        @include media-query(1024px) {
+            width: clamp(730px, 73.242vw, 850px);
+        }
+
+        @include media-query(768px) {
+            width: clamp(570px, 76.823vw, 650px);
+        }
+
+        @include media-query(490px) {
+            width: clamp(320px, 69.388vw, 420px);
+        }
+
+        .detail-box {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(64px, 4.479vw, 120px);
+
+            @include media-query(490px) {
+                gap: clamp(24px, 6.531vw, 48px);
+                margin-bottom: 16px;
+            }
+
+            p {
+                @include media-query(490px) {
+                    overflow: hidden;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 3;
+                    line-clamp: 3;
+                    -webkit-box-orient: vertical;
+                }
+            }
+
+            .member-advantages {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                .icon-box {
+                    width: min-content;
+                    @include media-query(1599px) {
+                        display: none;
+                    }
+                    .skill-box{
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 4px;
+                    }
+                }
+
+                .icon-box-responsive {
+                    display: none;
+
+                    @include media-query(1599px) {
+                        display: block;
+                        width: min-content;
+                    }
+                    
+                    .image-title {
+                        @include media-query(1599px) {
+                            display: flex;
+                            gap: 8px;
+                        }
+
+                        img {
+                            @include media-query(1599px) {
+                                width: clamp(24px, 2.552vw, 60px);
+                                height: clamp(24px, 2.552vw, 60px);
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+
+        .member-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: clamp(10px, 1.042vw, 30px);
+
+        }
+    }
+
+    .blur {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+
+        .animate-1 {
+            border-radius: 50%;
+            background: rgba(48, 118, 254, 0.30);
+            filter: blur(150px);
+            position: absolute;
+            top: -6%;
+            left: -14%;
+            animation: animate1 60s linear infinite alternate;
+            width: clamp(250px, 18.438vw, 550px);
+            height: clamp(250px, 18.438vw, 550px);
+
+        }
+
+        .animate-2 {
+            border-radius: 50%;
+            background: rgba(48, 118, 254, 0.30);
+            filter: blur(150px);
+            position: absolute;
+            bottom: -40%;
+            left: 28%;
+            animation: animate2 70s linear infinite alternate;
+            width: clamp(250px, 18.438vw, 550px);
+            height: clamp(250px, 18.438vw, 550px);
+
+        }
+
+        .animate-3 {
+            border-radius: 50%;
+            background: rgba(48, 118, 254, 0.30);
+            filter: blur(150px);
+            position: absolute;
+            top: -40%;
+            right: -15%;
+            animation: animate3 65s linear infinite alternate;
+            width: 22.438vw;
+            height: 22.438vw;
+
+        }
+    }
+
+    @keyframes animate1 {
+        0% {
+            left: -14%;
+            top: -9%;
+        }
+
+        20% {
+            left: 0%;
+            top: 32%;
+        }
+
+        40% {
+            left: 10%;
+            top: 70%;
+        }
+
+        60% {
+            left: 50%;
+            top: 0%;
+        }
+
+        80% {
+            left: 95%;
+            top: 30%;
+        }
+
+        100% {
+            left: 0%;
+            top: 0%;
+        }
+    }
+
+    @keyframes animate2 {
+        0% {
+            right: 0%;
+            bottom: 0%;
+        }
+
+        20% {
+            right: 45%;
+            bottom: 20%;
+        }
+
+        40% {
+            right: 10%;
+            bottom: 70%;
+        }
+
+        60% {
+            right: 50%;
+            bottom: 0%;
+        }
+
+        80% {
+            right: 95%;
+            bottom: 80%;
+        }
+
+        100% {
+            right: 0%;
+            bottom: 0%;
+        }
+    }
+
+    @keyframes animate3 {
+
+        0% {
+            right: 0%;
+            top: 0%;
+        }
+
+        20% {
+            right: 30%;
+            top: 21%;
+        }
+
+        40% {
+            right: 60%;
+            top: 5%;
+        }
+
+        60% {
+            right: 50%;
+            top: 0%;
+        }
+
+        80% {
+            right: 80%;
+            top: 29%;
+        }
+
+        100% {
+            right: 45%;
+            top: 50%;
+        }
+    }
+}

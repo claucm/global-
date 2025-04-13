@@ -1,0 +1,231 @@
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  
+}
+
+ul.list-style,
+ol.list-style {
+  padding: 0;
+}
+
+ul.list-style li::marker,
+ol.list-style li::marker {
+  color: $accent-1;
+}
+
+.unstyled {
+  padding-left: 0;
+  list-style: none;
+  margin-bottom: 0;
+}
+
+
+.container,
+.container-fluid{
+  @media (min-width: 1440px) {
+    padding: 0 96px;
+    width: 100%;
+  }
+}
+
+
+.row.g-0 {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.row.g-0>[class*="col"] {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.page-content{
+  margin: 20px 0;
+}
+
+
+
+
+/*-------------------------
+    Typography
+-------------------------*/
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-primary;
+  color: $white;
+  background: $black;
+  font-size: clamp(17px, 0.938vw, 22px);
+  font-weight: 400;
+  line-height: 140%;
+  height: 100%;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+address,
+p,
+pre,
+blockquote,
+table,
+hr {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  a {
+    color: inherit;
+  }
+}
+
+
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: unset;
+  &:hover {
+    color: $accent-1;
+    transition: $transition;
+  }
+}
+
+
+
+// ==============
+
+/* ------------------------------------------------------------- *
+ * Custom scrollbar style
+/* ------------------------------------------------------------- */
+
+.tt-custom-scrollbar {
+	overflow-y: auto;
+}
+
+/* Works on Firefox */
+.tt-custom-scrollbar,
+.tt-sliding-sidebar-inner,
+.tt-sidebar {
+	scrollbar-width: thin;
+	scrollbar-color: #555 #2a2a2a;
+}
+select {
+	scrollbar-width: thin;
+	scrollbar-color: #666 #2a2a2a;
+}
+
+.tt-custom-scrollbar::-webkit-scrollbar,
+.tt-sliding-sidebar-inner::-webkit-scrollbar,
+.tt-sidebar::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+select::-webkit-scrollbar {
+	width: 10px;
+}
+.tt-custom-scrollbar::-webkit-scrollbar-track,
+.tt-sliding-sidebar-inner::-webkit-scrollbar-track,
+.tt-sidebar::-webkit-scrollbar-track,
+select::-webkit-scrollbar-track {
+	background: #2a2a2a;
+}
+.tt-custom-scrollbar::-webkit-scrollbar-thumb,
+.tt-sliding-sidebar-inner::-webkit-scrollbar-thumb,
+.tt-sidebar::-webkit-scrollbar-thumb {
+	background-color: #555;
+	border-radius: 50px;
+}
+select::-webkit-scrollbar-thumb {
+	background-color: #666;
+	border-radius: 50px;
+}
+
+body:not(.is-mobile).tt-smooth-scroll {
+	overflow: visible;
+}
+
+body:not(.is-mobile).tt-smooth-scroll #scroll-container { 
+	width: auto;
+	height: 100vh;
+	overflow: auto;
+	margin: 0;
+}
+
+/* Styling scrollbar */
+.scrollbar-track {
+	background: transparent !important;
+	z-index: 99999 !important;
+}
+.scrollbar-thumb {
+	background: #DDD !important;
+	opacity: .25;
+	transition: opacity 0.2s ease-in-out;
+  top: 15px !important;
+}
+.scrollbar-track:hover .scrollbar-thumb {
+	opacity: .5;
+}
+
+#scroll-container{
+  overflow: hidden;
+}
+.scroll-content{
+  overflow: hidden;
+}
+.scrollbar-track-x{
+  display: none;
+  &.show{
+    display: none;
+  }
+}
+
+// ********----------- NOISE EFFECT -----------*********//
+.wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+
+  &.bg-noise {
+    background: url(../media/vector/bg-noise.png);
+    background-size: auto;
+    background-repeat: repeat;
+    height: 100%;
+    background-position: center;
+    position: fixed;
+    animation: 250ms steps(10, end) 0s infinite alternate-reverse none running noise-animation;
+    z-index: 9999999;
+    top: 0;
+    pointer-events: none;
+    @keyframes noise-animation {
+      0% { background-position: 0% 0%; }
+      10% { background-position: -5% -5%; }
+      20% { background-position: -10% 5%; }
+      30% { background-position: 5% -10%; }
+      40% { background-position: -5% 15%; }
+      50% { background-position: -10% 5%; }
+      60% { background-position: 5% 5%; }
+      70% { background-position: 0% 10%; }
+      80% { background-position: -5% -5%; }
+      90% { background-position: 10% 5%; }
+    }
+  }
+
+}

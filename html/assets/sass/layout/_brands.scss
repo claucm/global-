@@ -1,0 +1,28 @@
+.brands {
+    padding: 4.167vw 0;
+    @include media-query(490px){
+        padding: 0.531vw  0 3.265vw;
+    }
+    .brand-slider {
+        margin: 0 -12px 24px;
+
+        .brand-block {
+            width: 13.958vw;
+            height: 5.208vw;
+            background: $light-black;
+            text-align: center;
+            border-radius: clamp(5px, 0.521vw, 15px);
+            margin: 0 12px;
+            display: grid;
+            align-items: center;
+            justify-content: center;
+
+            @include media-query(1024px) {
+                width: clamp(200px, 21.484vw, 280px);
+                height: clamp(60px, 6.836vw, 100px);
+            }
+         
+        }
+    }
+
+}

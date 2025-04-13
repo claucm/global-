@@ -1,0 +1,183 @@
+.cus-btn {
+  background-image: linear-gradient(45deg, #F17A7A 0%, #0A05E6 100%, #E769D5 100%);
+  border-radius: 10px;
+  color: $white;
+  display: block;
+  width: clamp(150px, 11.458vw, 260px);
+  height: clamp(48px, 2.917vw, 60px);
+  padding: clamp(2px, 0.208vw, 6px) clamp(16px, 1.25vw, 32px);
+  position: relative;
+  text-decoration: none;
+  z-index: 2;
+  border: 0;
+  font-size: clamp(15px, 0.938vw, 22px);
+
+  span {
+    display: flex;
+    align-items: center;
+    gap: clamp(4px, 0.417vw, 12px);
+    background: $light-black;
+    border-radius: 10px;
+    justify-content: center;
+    height: 100%;
+    transition: background .5s ease;
+    width: 100%;
+
+    &::after {
+      content: url('../media/vector/btn-arrow.png');
+      width: clamp(12px, 0.99vw, 26px);
+      height: clamp(8px, 0.729vw, 20px);
+      align-items: center;
+      display: flex;
+    }
+  }
+
+  &:hover {
+    color: $white;
+
+    span {
+      background: transparent;
+    }
+  }
+
+}
+
+.simple-btn{
+  color: $white;
+  transition: $transition;
+  display: flex;
+  align-items: center;
+  svg{
+    width: clamp(20px, 1.667vw, 48px);
+    width: clamp(21px, 1.719vw, 49px);
+    path{
+      stroke: $white;
+      transition: $transition;
+    }
+  }
+  &:hover{
+    transition: $transition;
+    color: $accent-2;
+    path{
+      transition: $transition;
+      stroke: $accent-2;
+    }
+  }
+}
+
+// SOCIAL ICONS
+.social-links {
+  ul {
+    display: flex;
+    align-items: center;
+    gap: clamp(8px, 0.625vw, 20px);
+    justify-content: end;
+    li {
+      a {
+        width: clamp(26px, 1.667vw, 60px);
+        height: clamp(26px, 1.667vw, 60px);
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        border-radius: 3.5px;
+        border: 0.5px solid $medium-gray;
+        transition: $transition;
+        &:hover{
+          background-color: $accent-2;
+          box-shadow: 0 0px 15px rgba(170, 71, 188, 1);
+        }
+      }
+    }
+  }
+}
+
+
+// ===================  PAGINATIONS =================== // 
+.pagination {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  overflow: hidden;
+  display: flex;
+
+  #border-pagination {
+    display: flex;
+    gap: clamp(16px, 1.25vw, 30px);
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+
+    li {
+      display: inline;
+
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        color: $medium-gray;
+        width: clamp(36px, 3.333vw, 72px);
+        height: clamp(36px, 3.333vw, 72px);
+        border: 1px solid $medium-gray;
+        border-radius: 5px;
+        float: left;
+        transition: $transition;
+        font-size: clamp(28px, 1.615vw, 36px);
+        font-weight: 600;
+        line-height: 120%;
+        letter-spacing: -0.62px;
+
+        @media(max-width: 1199px) {
+          font-size: clamp(26px, 2.419vw, 31px);
+        }
+
+        @media(max-width: 820px) {
+          font-size: clamp(22px, 2.725vw, 29px);
+        }
+
+        @media(max-width: 768px) {
+          font-size: clamp(19px, 2.608vw, 26px);
+        }
+
+        @media(max-width: 490px) {
+          font-size: clamp(17px, 3.469vw, 23px);
+          letter-spacing: -0.2px;
+        }
+
+
+        svg {
+          path {
+            stroke: $white;
+            transition: $transition;
+          }
+        }
+
+        &.active {
+          background-color: $accent-1;
+          color: $white;
+          border: 1px solid $medium-gray;
+
+          svg {
+            path {
+              stroke: $white;
+              transition: $transition;
+            }
+          }
+        }
+
+        &:hover {
+          background-color: $accent-1;
+          color: $white;
+          border: 1px solid $medium-gray;
+
+          svg {
+            path {
+              stroke: $white;
+              transition: $transition;
+            }
+          }
+        }
+      }
+    }
+  }
+}

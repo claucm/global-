@@ -1,0 +1,354 @@
+// Heading
+
+/* ------- Font Sizes ---------- */
+
+h1,
+.h-91 {
+  font-family: $font-sec;
+  font-weight: 700;
+  font-size: clamp(54px, 4.74vw, 182px);
+  line-height: 140%;
+  letter-spacing: -4.55px;
+  
+  @media(max-width: 1199px) {
+    font-size: clamp(42px, 4.688vw, 60px);
+    letter-spacing: -3.55px;
+  }
+  
+  @media(max-width: 820px) {
+    font-size: clamp(40px, 5.61vw, 50px);
+    letter-spacing: -3px;
+  }
+  
+  @media(max-width: 768px) {
+    font-size: clamp(32px, 5.538vw, 45px);
+    
+  }
+  
+  @media(max-width: 490px) {
+    font-size: clamp(30px, 8vw, 38px);
+    letter-spacing: -2.25px;
+  }
+}
+
+h2,
+.h-69 {
+  font-family: $font-sec;
+  font-weight: 700;
+  font-size: clamp(48px, 3.594vw, 82px);
+  line-height: 120%;
+  letter-spacing: -2.07px;
+
+  @media(max-width: 1199px) {
+    font-size: clamp(38px, 3.67vw, 60px);
+  }
+
+  @media(max-width: 820px) {
+    font-size: clamp(30px, 4.146vw, 48px);
+    letter-spacing: -0.07px;
+  }
+
+  @media(max-width: 768px) {
+    font-size: clamp(26px, 3.651vw, 40px);
+    letter-spacing: -1.15px;
+  }
+
+  @media(max-width: 490px) {
+    font-size: clamp(24px, 5.306vw, 30px);
+    letter-spacing: -0.5px;
+  }
+}
+
+h3,
+.h-53 {
+  font-family: $font-sec;
+  font-weight: 700;
+  font-size: clamp(40px, 2.76vw, 72px);
+  line-height: 120%;
+  letter-spacing: -0.53px;
+
+  @media(max-width: 1199px) {
+    font-size: clamp(32px, 3.169vw, 48px);
+  }
+
+  @media(max-width: 820px) {
+    font-size: clamp(23px, 3.415vw, 34px);
+  }
+
+  @media(max-width: 768px) {
+    font-size: clamp(22px, 2.868vw, 30px);
+  }
+
+  @media(max-width: 490px) {
+    font-size: clamp(20px, 4.694vw, 26px);
+  }
+}
+
+h4,
+.h-40 {
+  font-family: $font-sec;
+  font-weight: 600;
+  font-size: clamp(36px, 2.083vw, 60px);
+  line-height: 120%;
+  letter-spacing: -0.8px;
+
+  @media(max-width: 1199px) {
+    font-size: clamp(32px, 2.669vw, 48px);
+  }
+
+  @media(max-width: 820px) {
+    font-size: clamp(22px, 3.171vw, 34px);
+  }
+
+  @media(max-width: 768px) {
+    font-size: clamp(20px, 2.738vw, 30px);
+    letter-spacing: -0.2px;
+  }
+
+  @media(max-width: 490px) {
+    font-size: clamp(18px, 4.082vw, 26px);
+  }
+}
+
+
+h5,
+.h-31 {
+  font-family: $font-sec;
+  font-weight: 600;
+  font-size: clamp(28px, 1.615vw, 36px);
+  line-height: 120%;
+  letter-spacing: -0.62px;
+
+  @media(max-width: 1199px) {
+    font-size: clamp(26px, 2.419vw, 31px);
+  }
+
+  @media(max-width: 820px) {
+    font-size: clamp(22px, 2.725vw, 29px);
+  }
+
+  @media(max-width: 768px) {
+    font-size: clamp(19px, 2.608vw, 26px);
+  }
+
+  @media(max-width: 490px) {
+    font-size: clamp(17px, 3.469vw, 23px);
+    letter-spacing: -0.2px;
+  }
+}
+
+h6,
+.h-24 {
+  font-family: $font-sec;
+  font-size: clamp(20px, 1.25vw, 32px);
+  font-weight: 600;
+  line-height: 120%;
+  letter-spacing: -0.40px;
+  height: unset !important;
+
+  @media(max-width: 1199px) {
+    font-size: clamp(20px, 1.835vw, 24px);
+  }
+
+  @media(max-width: 820px) {
+    font-size: clamp(18px, 2.018vw, 22px);
+  }
+
+  @media(max-width: 768px) {
+    font-size: clamp(16px, 2.347vw, 20px);
+  }
+
+  @media(max-width: 490px) {
+    font-size: clamp(16px, 3.061vw, 21px);
+  }
+}
+
+p,
+ .p-18 {
+  font-family: $font-primary;
+  font-size: clamp(17px, 0.938vw, 22px);
+  font-weight: 400;
+  line-height: 140%;
+
+  @media(max-width: 1199px) {
+    font-size: clamp(17px, 1.251vw, 18px);
+  }
+
+  @media(max-width: 820px) {
+    font-size: clamp(16px, 1.514vw, 16px);
+  }
+
+  @media(max-width: 768px) {
+    font-size: clamp(16px, 1.825vw, 15px);
+  }
+
+  @media(max-width: 490px) {
+    font-size: clamp(15px, 2.261vw, 14px);
+  }
+}
+
+// Text Colors
+.color-primary {
+  color: $accent-1 !important;
+}
+
+.color-sec {
+  color: $accent-2 !important;
+}
+
+.color-ter {
+  color: $accent-2 !important;
+}
+
+.dark-black {
+  color: $black !important;
+}
+
+.white {
+  color: $white !important;
+}
+
+.dark-gray {
+  color: $dark-gray !important;
+}
+
+.medium-gray {
+  color: $medium-gray !important;
+}
+
+.light-gray {
+  color: $medium-gray !important;
+}
+
+
+// Gradient Colors
+.accent-gradient {
+  color: linear-gradient(140deg, #7C72EF 20.73%, #A886B7 40.1%, #C49393 65.55%, #ECA36A 90.2%) !important;
+}
+
+
+// Background Colors
+.bg-color-primary {
+  background-color: $accent-1 !important;
+}
+
+.bg-color-sec {
+  background-color: $accent-2 !important;
+}
+
+.bg-color-ter {
+  background-color: $accent-2 !important;
+}
+
+.bg-dark-black {
+  background-color: $black !important;
+}
+
+.bg-white {
+  background-color: $white !important;
+}
+
+.bg-dark-gray {
+  background-color: $dark-gray !important;
+}
+
+.bg-medium-gray {
+  background-color: $medium-gray !important;
+}
+
+.bg-light-gray {
+  background-color: $medium-gray !important;
+}
+
+
+
+
+// Radius
+.br-30 {
+  border-radius: 30px;
+
+  @include media-query (992px) {
+    border-radius: 20px;
+  }
+
+  @include media-query (768px) {
+    border-radius: 15px;
+  }
+
+}
+
+.br-30-0 {
+  border-radius: 30px 30px 0 0;
+  overflow: hidden;
+
+  @include media-query (992px) {
+    border-radius: 20px 20px 0 0;
+  }
+
+  @include media-query (768px) {
+    border-radius: 15px 15px 0 0;
+  }
+
+}
+
+.br-25 {
+  border-radius: 25px;
+}
+
+.br-20 {
+  border-radius: 20px;
+}
+
+.br-15 {
+  border-radius: 15px;
+}
+
+.br-10 {
+  border-radius: 10px;
+}
+
+.br-5 {
+  border-radius: 5px;
+}
+
+// Box Shadow classes
+
+
+// ------------- Font Weight -------------- //
+.fw-400 {
+  font-weight: 400;
+}
+
+.fw-500 {
+  font-weight: 500;
+}
+
+.fw-600 {
+  font-weight: 600;
+}
+
+.fw-700 {
+  font-weight: 700;
+}
+
+.fw-800 {
+  font-weight: 800;
+}
+
+// Font Family
+.font-primary {
+  font-family: $font-primary;
+}
+
+
+
+.body-text {
+  font-family: $font-sec;
+}
+
+
+// Mix helper classes
+.b-unstyle {
+  border: 0;
+  background: transparent;
+}

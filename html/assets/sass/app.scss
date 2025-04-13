@@ -1,0 +1,135 @@
+/*---------------------------------------------"
+// Template Name: AR App
+// Template URL: https://techpedia.co.uk/template/ar-app-landing
+// Description:  AR App Html Template
+// Version: 1.0.0
+
+===============================================   
+STYLE SHEET INDEXING
+|
+|___ Fonts
+|___ Variables
+|___ Responsive
+|___ Reset Styles
+|___ Spacing
+|___ Helper Classes
+|___ Buttons
+|___ Headings
+|___ Layout Styles
+|___ END STYLE SHEET INDEXING
+
+--------------------------------------------*/
+
+/*-------------------------
+    Fonts
+-------------------------*/
+
+//// Montserrat
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+//// Fira Sans Font
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&display=swap');
+
+/*-------------------------
+    Variables
+-------------------------*/
+/* Fonts */
+$font-primary: "Fira Sans", sans-serif;
+$font-sec: "Montserrat", sans-serif;
+$font-awesome: "Font Awesome 5 Pro";
+
+/* Colors */
+$accent-1: #3076FE;
+$accent-2: #AB47BC;
+$black: #0C0C0D;
+$light-black: #141516;
+$white: #FFFCFA;
+$dark-gray: #45474F;
+$medium-gray: #92949F;
+$lightest-gray: #EAEAEC;
+
+
+/* Transitions */
+$transition: all .5s ease-in-out;
+
+/* Gradients */
+    $accent-gradient: linear-gradient(140deg, #7C72EF 20.73%, #A886B7 40.1%, #C49393 65.55%, #ECA36A 90.2%);
+    $gradient-sec: linear-gradient(99deg, #FF8946 -4.71%, #FF5C00 93.14%);
+
+
+
+/*-------------------------
+    Responcive Styles
+-------------------------*/
+@import "helpers/mixin";
+
+/*-------------------------
+    Reset Styles
+-------------------------*/
+@import "basic/basic";
+
+/*-------------------------
+Helpers
+-------------------------*/
+@import "helpers/classes";
+
+
+@import "helpers/spacing";
+
+/*-------------------------
+Elements
+-------------------------*/
+
+@import "elements/buttons";
+
+@import "elements/form";
+
+@import "elements/heading";
+
+@import "elements/preloader";
+
+/*-------------------------
+  layouts
+-------------------------*/
+@import "layout/header";
+
+@import "layout/footer";
+
+@import "layout/banner";
+
+@import "layout/brands";
+
+@import "layout/portfolio"; 
+
+@import "layout/video"; 
+
+@import "layout/services"; 
+
+@import "layout/team"; 
+
+@import "layout/blogs"; 
+
+@import "layout/contact";
+
+@import "layout/testimonial"; 
+
+@import "layout/title-banner"; 
+
+@import "layout/blog-detail"; 
+
+@import "layout/about"; 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

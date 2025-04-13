@@ -1,0 +1,215 @@
+.banner {
+    width: 100vw;
+    height: 89vh;
+    position: relative;
+    background: $black;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    @include media-query(1399px){
+        height: 90vh;
+    }
+    @include media-query(1024px){
+        height: 78vh;
+    }
+    @include media-query(768px){
+        height: 75vh;
+    }
+    @include media-query(490px){
+        height: 100vh;
+    }
+
+    .container-fluid{
+        position: relative;
+        z-index: 50;
+    }
+    .content {
+        text-align: center;
+        br{
+            @include media-query(490px){
+                display: none;
+            }
+        }
+        .text-reveal {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            text-align: center;
+            font-family: $font-sec;
+          }
+          
+          .random-word {
+            display: inline-block;
+            width: auto;
+            animation: slidedown 4s infinite;
+            -webkit-animation: slidedown 4s infinite;
+            -moz-animation: slidedown 4s infinite;
+          }
+          
+          @keyframes slidedown {
+            0% {
+              opacity: 50;
+            }
+            
+            5% {
+              opacity: 0;
+              transform: translateY(0.5em);
+            }
+            
+            7% {
+              transform: translateY(-1em);
+            }
+            
+            10% {
+              opacity: 0;
+            }
+            
+            20% {
+              transform: translateY(0);
+              opacity: 100;
+            }
+          }
+          
+    }
+    
+    .blur {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    
+        .animate-1 {
+            border-radius: 50%;
+            background: rgba(48, 118, 254, 0.30);
+            filter: blur(150px);
+            position: absolute;
+            top: -6%;
+            left: -14%;
+            animation: animate1 60s linear infinite alternate;
+            width: clamp(250px, 18.438vw, 550px);
+            height: clamp(250px, 18.438vw, 550px);
+    
+        }
+    
+        .animate-2 {
+            border-radius: 50%;
+            background: rgba(48, 118, 254, 0.30);
+            filter: blur(150px);
+            position: absolute;
+            bottom: -40%;
+            left: 28%;
+            animation: animate2 70s linear infinite alternate;
+            width: clamp(250px, 18.438vw, 550px);
+            height: clamp(250px, 18.438vw, 550px);
+           
+        }
+    
+        .animate-3 {
+            border-radius: 50%;
+            background: rgba(48, 118, 254, 0.30);
+            filter: blur(150px);
+            position: absolute;
+            top: -40%;
+            right: -15%;
+            animation: animate3 65s linear infinite alternate;
+            width: clamp(300px ,22.438vw, 600px);
+            height: clamp(300px ,22.438vw, 600px);
+           
+        }
+    }
+    
+    @keyframes animate1 {
+        0% {
+            left: -14%;
+            top: -9%;
+        }
+    
+        20% {
+            left: 0%;
+            top: 32%;
+        }
+    
+        40% {
+            left: 10%;
+            top: 70%;
+        }
+    
+        60% {
+            left: 50%;
+            top: 0%;
+        }
+    
+        80% {
+            left: 95%;
+            top: 30%;
+        }
+    
+        100% {
+            left: 0%;
+            top: 0%;
+        }
+    }
+    
+    @keyframes animate2 {
+        0% {
+            right: 0%;
+            bottom: 0%;
+        }
+    
+        20% {
+            right: 45%;
+            bottom: 20%;
+        }
+    
+        40% {
+            right: 10%;
+            bottom: 70%;
+        }
+    
+        60% {
+            right: 50%;
+            bottom: 0%;
+        }
+    
+        80% {
+            right: 95%;
+            bottom: 80%;
+        }
+    
+        100% {
+            right: 0%;
+            bottom: 0%;
+        }
+    }
+    
+    @keyframes animate3 {
+    
+        0% {
+            right: 0%;
+            top: 0%;
+        }
+        20% {
+            right: 30%;
+            top: 21%;
+        }
+        
+        40% {
+            right: 60%;
+            top: 5%;
+        }
+        60% {
+            right: 50%;
+            top: 0%;
+        }
+        80% {
+            right: 80%;
+            top: 29%;
+        }
+        100% {
+            right: 45%;
+            top: 50%;
+        }
+    }
+}

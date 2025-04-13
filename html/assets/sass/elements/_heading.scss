@@ -1,0 +1,17 @@
+.heading {
+  br {
+    @include media-query(575px) {
+      display: none;
+    }
+  }
+
+  p {
+    @include media-query(575px) {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
+  }
+}

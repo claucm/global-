@@ -1,0 +1,160 @@
+.about-us{
+    position: relative;
+    .container-fluid{
+        position: relative;
+        z-index: 50;
+    }
+    .about-image{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: clamp(15px, 1.042vw, 35px);
+    }
+    .about-wrapper{
+        padding: 0 20.208vw;
+
+        @include media-query(1199px){
+            padding: 0 6.672vw;
+        }
+        .service-offer-block{
+            padding: 8.333vw 0;
+        }
+    }
+
+    .blur-about {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    
+        .animate-about-1 {
+            border-radius: 50%;
+            background: rgba(48, 118, 254, 0.30);
+            filter: blur(150px);
+            position: absolute;
+            top: 47%;
+            left: 0%;
+            animation: animatebanner1 60s linear infinite alternate;
+            width: clamp(250px, 18.438vw, 550px);
+            height: clamp(250px, 18.438vw, 550px);
+    
+        }
+    
+        .animate-about-2 {
+            border-radius: 50%;
+            background: rgba(48, 118, 254, 0.30);
+            filter: blur(150px);
+            position: absolute;
+            top: 22%;
+            right: -4%;
+            animation: animatebanner2 65s linear infinite alternate;
+            width: clamp(300px ,22.438vw, 600px);
+            height: clamp(300px ,22.438vw, 600px);
+           
+        }
+        .animate-about-3 {
+            border-radius: 50%;
+            background: rgba(48, 118, 254, 0.30);
+            filter: blur(150px);
+            position: absolute;
+            top: 70%;
+            left: 5%;
+            animation: animatebanner3 65s linear infinite alternate;
+            width: clamp(300px ,22.438vw, 600px);
+            height: clamp(300px ,22.438vw, 600px);
+           
+        }
+    }
+    
+    @keyframes animatebanner1 {
+        0% {
+            left: 0%;
+            top: 47%;
+        }
+    
+        20% {
+            left: 2%;
+            top: 50%;
+        }
+    
+        40% {
+            left: 4%;
+            top: 53%;
+        }
+    
+        60% {
+            left: 6%;
+            top: 57%;
+        }
+    
+        80% {
+            left: 12%;
+            top: 12%;
+        }
+    
+        100% {
+            left: 15%;
+            top: 18%;
+        }
+    }
+    
+    @keyframes animatebanner2 {
+    
+        0% {
+            right: 0%;
+            top: 18%;
+        }
+        20% {
+            right: 15%;
+            top: 30%;
+        }
+        
+        40% {
+            right: 35%;
+            top: 50%;
+        }
+        60% {
+            right: 60%;
+            top: 28%;
+        }
+        80% {
+            right: 35%;
+            top: 12%;
+        }
+        100% {
+            right: 10%;
+            top: 0%;
+        }
+    }
+
+    @keyframes animatebanner3 {
+    
+        0% {
+            left: 5%;
+            top: 70%;
+        }
+        20% {
+            left: 20%;
+            top: 68%;
+        }
+        
+        40% {
+            left: 35%;
+            top: 63%;
+        }
+        60% {
+            left: 55%;
+            top: 70%;
+        }
+        80% {
+            left: 30%;
+            top: 75%;
+        }
+        100% {
+            left: 10%;
+            top: 78%;
+        }
+    }
+}
