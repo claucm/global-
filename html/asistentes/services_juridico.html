@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Techsync">
+
+    <title>Asistentes Legales - TechSync</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/media/favicon.png">
+
+    <!-- All CSS files -->
+    <link rel="stylesheet" href="../assets/css/vendor/font-awesome.css">
+    <link rel="stylesheet" href="../assets/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/app.css">
+
+    <!-- Estilos del carrusel vertical -->
+    <style>
+        .vertical-slider {
+            position: relative;
+        height: 300px;
+        width: 300px;
+        margin: 0 auto;
+        perspective: 1000px;
+    }
+
+    .slide-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+        cursor: pointer;
+    }
+
+    .slide {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        border-radius: 15px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(5px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .slide img {
+        width: 80%;
+        height: 80%;
+        object-fit: contain;
+        padding: 20px;
+    }
+    .slide:nth-child(2) {
+        transform: rotateY(180deg);
+    }
+
+    .slide-container.flipped {
+        transform: rotateY(180deg);
+    }
+
+    /* Eliminar los botones de flechas ya que usaremos click en la imagen */
+    .slider-arrow {
+        display: none;
+    }
+
+    /* Añadir indicador de click */
+    .slide::after {
+        content: '↻';
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        color: white;
+        font-size: 20px;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .slide:hover::after {
+        opacity: 0.8;
+    }
+    .hover-block.v-2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 15px; /* Reducido de 20px */
+        margin-top: -30px; /* Nuevo - ajusta la posición vertical */
+    }
+
+    .service-text.text-v2 {
+        margin-top: 20px; /* Nuevo - reduce el espacio */
+    }
+   
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .vertical-slider {
+            width: 250px;
+            height: 250px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .vertical-slider {
+            width: 200px;
+            height: 200px;
+        }
+    }
+
+    .hover-block.v-2 {
+            margin-top: -15px;
+        }
+
+    .testimonial-card {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        padding: 24px;
+        height: 100%;
+        transition: transform 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .testimonial-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 16px;
+    }
+
+    .platform-icon {
+        width: 32px;
+        height: 32px;
+    }
+
+    .rating {
+        color: #FFD700;
+        font-size: 14px;
+    }
+
+    .testimonial-text {
+        font-size: 15px;
+        line-height: 1.6;
+        margin-bottom: 16px;
+        font-style: italic;
+    }
+
+    .testimonial-author {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 16px;
+    }
+
+    .author-name {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 4px;
+    }
+
+    .author-role {
+        font-size: 14px;
+        color: #AB47BC;
+        margin: 0;
+    }
+
+    @media (max-width: 768px) {
+        .testimonial-card {
+            margin-bottom: 24px;
+        }
+    }
+
+    .innovation-banner {
+        position: relative;
+        padding: 40px 0;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+    .tech-animation {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+    }
+
+    .tech-line {
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #3076FE, transparent);
+        animation: techLine 3s infinite;
+    }
+
+    .tech-line:nth-child(1) {
+        top: 20%;
+        animation-delay: 0s;
+    }
+
+    .tech-line:nth-child(2) {
+        top: 50%;
+        animation-delay: 1s;
+    }
+
+    .tech-line:nth-child(3) {
+        top: 80%;
+        animation-delay: 2s;
+    }
+
+    .innovation-banner {
+        position: relative;
+        padding: 60px 0;
+        background: rgba(12, 12, 13, 0.8);
+        border-radius: 15px;
+        overflow: hidden;
+        height: 300px; /* Altura fija para el banner */
+    }
+
+    .tech-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.3;
+        z-index: 0;
+    }
+
+    .tech-animation {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+
+    .content-overlay {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+
+    .content-overlay h4 {
+        font-size: 42px;
+        margin-bottom: 16px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        text-shadow: 0 0 20px rgba(48, 118, 254, 0.8);
+    }
+
+    .content-overlay p {
+        font-size: 18px;
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    @media (max-width: 768px) {
+        .innovation-banner {
+            height: 250px;
+        }
+        .content-overlay h4 {
+            font-size: 32px;
+        }
+        .content-overlay p {
+            font-size: 16px;
+        }
+    }
+
+    </style>
+</head>
+
+<body class="tt-smooth-scroll">
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="darksoul-layout">
+            <div class="darksoul-grid">
+                <div class="item1"></div>
+                <div class="item3"></div>
+            </div>
+            <h3 class="darksoul-loader-h">Global CyberGuard</h3>
+        </div>
+    </div>
+
+    <div id="scroll-container">
+        <!-- Header Menu Start -->
+        <header class="mb-100">
+            <nav class="main-menu">
+                <div class="container-fluid">
+                    <div class="main-menu__block">
+                        <div class="main-menu__logo">
+                            <a href="../index.html">
+                                <img src="../assets/media/logo.png" alt="" class="header-logo">
+                            </a>
+                        </div>
+                        <div class="menu-button-right">
+                            <div class="main-menu__nav">
+                                <ul class="main-menu__list">
+                                    <li><a href="../index.html">Inicio</a></li>
+                                    <li><a href="../about.html">Sobre nosotros</a></li>
+                                    <li><a href="../services.html" class="active">Servicios</a></li>
+                                    <li><a href="../contact.html">Contacto</a></li>
+                                </ul>
+                            </div>
+                            <div class="main-menu__right">
+                                <a class="cus-btn d-sm-flex d-none" href="../contact.html">
+                                    <span>¿Hablamos?</span>
+                                </a>
+                                <a href="#" class="main-menu__toggler mobile-nav__toggler">
+                                    <img src="../assets/media/vector/menu.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Service Area Start -->
+        <section class="services">
+            <div class="blur">
+                <div class="animate-1"></div>
+                <div class="animate-3"></div>
+            </div>
+            <div class="container-fluid">
+                <div class="services-wrapper">
+                    <!-- Hero Section -->
+                    <div class="heading text-center">
+                        <h2 class="white mb-16">Asistentes Legales y<br>Análisis Jurídico Especializado</h2>
+                        <p class="medium-gray mb-32">Empoderamos el conocimiento legal y democratizamos el acceso a la justicia
+                            <br>a través de la inteligencia artificial y tecnologías avanzadas.
+                        </p>
+                    </div>
+
+                    <!-- Services Section -->
+                    <div class="service-block mb-sm-80 mb-0">
+                        <div class="row align-items-center">
+                            <!-- Servicio 1 -->
+                            <div class="col-lg-6 col-md-6">
+                                <div class="hover-block v-2 mb-16">
+                                    <div class="vertical-slider">
+                                        <div class="slide-container">
+                                            <div class="slide">
+                                                <img src="../assets/media/images/contratos.png" alt="Documentos Legales 1">
+                                            </div>
+                                            <div class="slide">
+                                                <img src="../assets/media/images/abogado.png" alt="Documentos Legales 2">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="service-text text-v2 text-center mb-100">
+                                    <h2 class="white mb-16">Redacción Automatizada</h2>
+                                    <ul class="list-unstyled">
+                                        <li class="label p-18 dark-black">Tutelas</li>
+                                        <li class="label p-18 dark-black">Derechos de Petición</li>
+                                        <li class="label p-18 dark-black">Contratos</li>
+                                    </ul>
+                                    <p class="medium-gray mb-32">Documentos legales generados con estructura profesional
+                                        <br>y normativa jurídica vigente nacional e internacional.</p>
+                                    <a class="cus-btn m-auto" href="../contact.html">
+                                        <span>Demo</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Servicio 2 -->
+                            <div class="col-lg-6 col-md-6">
+                                <div class="hover-block v-2 mb-16">
+                                    <div class="vertical-slider">
+                                        <div class="slide-container">
+                                            <div class="slide active">
+                                                <img src="../assets/media/images/abogado-s2.png" alt="Documentos Legales 1">
+                                            </div>
+                                            <div class="slide">
+                                                <img src="../assets/media/images/mujer-s2.png" alt="Documentos Legales 2">
+                                            </div>
+                                        </div>
+                                        <button class="slider-arrow up" onclick="prevSlide(this)">↑</button>
+                                        <button class="slider-arrow down" onclick="nextSlide(this)">↓</button>
+                                    </div>
+                                </div>
+                                <div class="service-text text-v2 text-center mb-100">
+                                    <h2 class="white mb-16">Asistentes Jurídicos</h2>
+                                    <ul class="list-unstyled">
+                                        <li class="label p-18 dark-black">Civil y Laboral</li>
+                                        <li class="label p-18 dark-black">Administrativo</li>
+                                        <li class="label p-18 dark-black">Constitucional</li>
+                                    </ul>
+                                    <p class="medium-gray mb-32">Asistentes virtuales entrenados con leyes colombianas 
+                                        <br>e internacionales para asesoría especializada.</p>
+                                    <a class="cus-btn m-auto" href="../contact.html">
+                                        <span>Demo</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Video Section -->
+                            <div class="col-lg-12">
+                                <div class="video-sec mb-100">
+                                    <div class="blur-2">
+                                        <div class="animate-4"></div>
+                                        <div class="animate-5"></div>
+                                    </div>
+                                    <div class="bg-video">
+                                        <div class="clothing-video">
+                                            <video id="videoPlayer" loop playsinline muted autoplay class="mb-32">
+                                                <source src="../assets/media/tech-video.mp4" type="video/mp4">
+                                            </video>
+                                            <h4 class="white text-center mb-32">¿Porqué elegirnos?</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Servicio 3 -->
+                            <div class="col-lg-6 col-md-6">
+                                <div class="hover-block v-2 mb-16">
+                                    <div class="vertical-slider">
+                                        <div class="slide-container">
+                                            <div class="slide active">
+                                                <img src="../assets/media/images/s3-internacional.png" alt="Documentos Legales 1">
+                                            </div>
+                                            <div class="slide">
+                                                <img src="../assets/media/images/mundo-s3.png" alt="Documentos Legales 2">
+                                            </div>
+                                        </div>
+                                        <button class="slider-arrow up" onclick="prevSlide(this)">↑</button>
+                                        <button class="slider-arrow down" onclick="nextSlide(this)">↓</button>
+                                    </div>
+                                </div>
+                                <div class="service-text text-v2 text-center mb-sm-0 mb-80">
+                                    <h2 class="white mb-16">Alcance Global</h2>
+                                    <ul class="list-unstyled">
+                                        <li class="label p-18 dark-black">Compliance</li>
+                                        <li class="label p-18 dark-black">Riesgos Jurídicos</li>
+                                        <li class="label p-18 dark-black">Traducción Legal</li>
+                                    </ul>
+                                    <p class="medium-gray mb-32">Soluciones corporativas internacionales para
+                                        <br>departamentos legales y procesos transfronterizos.</p>
+                                    <a class="cus-btn m-auto" href="../contact.html">
+                                        <span>Demo</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- OpenAI Partnership -->
+                            <div class="col-lg-6 col-md-6">
+                                <div class="hover-block v-2 mb-16">
+                                    <div class="vertical-slider">
+                                        <div class="slide-container">
+                                            <div class="slide active">
+                                                <img src="../assets/media/images/ia-s4.png" alt="Documentos Legales 1">
+                                            </div>
+                                            <div class="slide">
+                                                <img src="../assets/media/images/legal-doc-2.png" alt="Documentos Legales 2">
+                                            </div>
+                                        </div>
+                                        <button class="slider-arrow up" onclick="prevSlide(this)">↑</button>
+                                        <button class="slider-arrow down" onclick="nextSlide(this)">↓</button>
+                                    </div>
+                                </div>
+                                <div class="service-text text-v2 text-center">
+                                    <h2 class="white mb-16">Respaldados por OpenAI</h2>
+                                    <ul class="list-unstyled">
+                                        <li class="label p-18 dark-black">Seguridad</li>
+                                        <li class="label p-18 dark-black">Precisión</li>
+                                        <li class="label p-18 dark-black">Ética Profesional</li>
+                                    </ul>
+                                    <p class="medium-gray mb-32">Como contribuidores activos de OpenAI, garantizamos
+                                        <br>la más alta calidad en nuestras soluciones de IA.</p>
+                                    <a class="cus-btn m-auto" href="../about.html">
+                                        <span>Cotiza</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="mb-24">
+            <div class="blur">
+                <div class="animate-1"></div>
+                <div class="animate-3"></div>
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                   <div class="col-lg-12">
+    <div class="innovation-banner mb-24">
+        <video class="tech-background" loop autoplay muted playsinline>
+            <source src="../assets/media/video_tech.mp4" type="video/mp4">
+        </video>
+        <div class="tech-animation">
+            <div class="tech-line"></div>
+            <div class="tech-line"></div>
+          
+        </div>
+        <div class="content-overlay">
+            <h4 class="white text-center">Innovación con propósito</h4>
+            
+        </div>
+    </div>
+</div>
+                    <div class="col-lg-4">
+                        <div class="footer-logo">
+                            <img src="assets/media/ft-logo.png" alt="" class="ft-logo mb-32">
+                            <p class="medium-gray">
+                                Global CyberGuard ha sido pionera en el análisis normativo colombiano con IA,
+                                desarrollando modelos aplicados a la enseñanza del derecho, la historia jurídica y la
+                                gestión documental. 
+
+                            </p>
+                            <br>
+                            <p class="medium-gray d-xl-block d-none">
+                                Hoy, llevamos esta tecnología a todos los sectores como una herramienta para
+                                empoderar el conocimiento legal y democratizar el acceso a la justicia.
+
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="row testimonials-section mb-32">
+                        <div class="col-lg-12 mb-24">
+                            <h4 class="white text-center">Testimonios</h4>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 mb-24">
+                            <div class="testimonial-card">
+                                <div class="testimonial-header">
+                                    <span class="platform-icon">
+                                        <!-- Facebook icon -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 33" fill="none">
+                                            <!-- ... existing Facebook SVG ... -->
+                                        </svg>
+                                    </span>
+                                    <div class="rating">★★★★★</div>
+                                </div>
+                                <p class="testimonial-text medium-gray">"El asistente legal me ayudó a redactar documentos jurídicos complejos en minutos. Una herramienta invaluable para mi práctica legal."</p>
+                                <div class="testimonial-author">
+                                    <p class="author-name white">Carlos Ramírez</p>
+                                    <p class="author-role">Abogado Senior</p>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="col-lg-3 col-sm-6 mb-24">
+                            <div class="testimonial-card">
+                                <div class="testimonial-header">
+                                    <span class="platform-icon">
+                                        <!-- Google icon -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 33" fill="none">
+                                            <!-- ... existing Google SVG ... -->
+                                        </svg>
+                                    </span>
+                                    <div class="rating">★★★★★</div>
+                                </div>
+                                <p class="testimonial-text medium-gray">"La integración de IA en nuestro departamento legal ha revolucionado nuestra forma de trabajar. Eficiencia y precisión extraordinarias."</p>
+                                <div class="testimonial-author">
+                                    <p class="author-name white">Ana Martínez</p>
+                                    <p class="author-role">Directora Legal</p>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="col-lg-3 col-sm-6 mb-24">
+                            <div class="testimonial-card">
+                                <div class="testimonial-header">
+                                    <span class="platform-icon">
+                                        <!-- LinkedIn icon -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 33" fill="none">
+                                            <!-- ... existing LinkedIn SVG ... -->
+                                        </svg>
+                                    </span>
+                                    <div class="rating">★★★★★</div>
+                                </div>
+                                <p class="testimonial-text medium-gray">"Como profesor de derecho, esta herramienta ha transformado la forma en que enseñamos conceptos jurídicos complejos."</p>
+                                <div class="testimonial-author">
+                                    <p class="author-name white">Dr. José García</p>
+                                    <p class="author-role">Profesor Universitario</p>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="col-lg-3 col-sm-6 mb-24">
+                            <div class="testimonial-card">
+                                <div class="testimonial-header">
+                                    <span class="platform-icon">
+                                        <!-- Custom icon for verified review -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 33" fill="none">
+                                            <!-- ... existing SVG ... -->
+                                        </svg>
+                                    </span>
+                                    <div class="rating">★★★★★</div>
+                                </div>
+                                <p class="testimonial-text medium-gray">"La traducción jurídica automática nos ha permitido expandir nuestros servicios internacionalmente con confianza."</p>
+                                <div class="testimonial-author">
+                                    <p class="author-name white">María López</p>
+                                    <p class="author-role">CEO Firma Legal</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                            
+                    <div class="col-md-12">
+                        <div class="footer_bottom_bar text-center">
+                            <p class="white">© 2024. All rights reserved by TechSync</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/vendor/jquery-3.6.3.min.js"></script>
+    <script src="../assets/js/vendor/bootstrap.min.js"></script>
+    <script src="../assets/js/vendor/jquery-validator.js"></script>
+    <script src="../assets/js/vendor/smooth-scrollbar.js"></script>
+    <script src="../assets/js/app.js"></script>
+
+    <!-- Carrusel Vertical Script -->
+    <script>
+        function nextSlide(button) {
+            const container = button.closest('.vertical-slider');
+            const slides = container.querySelectorAll('.slide');
+            const currentSlide = container.querySelector('.slide.active');
+            let nextIndex = Array.from(slides).indexOf(currentSlide) + 1;
+            
+            if (nextIndex >= slides.length) {
+                nextIndex = 0;
+            }
+            
+            currentSlide.classList.remove('active');
+            slides[nextIndex].classList.add('active');
+        }
+
+        function prevSlide(button) {
+            const container = button.closest('.vertical-slider');
+            const slides = container.querySelectorAll('.slide');
+            const currentSlide = container.querySelector('.slide.active');
+            let prevIndex = Array.from(slides).indexOf(currentSlide) - 1;
+            
+            if (prevIndex < 0) {
+                prevIndex = slides.length - 1;
+            }
+            
+            currentSlide.classList.remove('active');
+            slides[prevIndex].classList.add('active');
+        }
+
+        // Inicializar sliders
+        document.addEventListener('DOMContentLoaded', function() {
+            const sliders = document.querySelectorAll('.vertical-slider');
+            sliders.forEach(slider => {
+                const firstSlide = slider.querySelector('.slide');
+                if (firstSlide) {
+                    firstSlide.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

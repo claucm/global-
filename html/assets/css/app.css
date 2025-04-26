@@ -3367,6 +3367,36 @@ footer .blur .animate-3 {
 .services {
   position: relative;
 }
+
+.services-wrapper {
+  padding-top: 0;
+}
+
+.heading.text-center {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.service-block {
+  margin-top: -20px;
+}
+
+.hover-block.v-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px;
+ 
+}
+
+.service-text.text-v2 {
+  margin-top: 15px;
+}
+
+.video-sec.mb-100 {
+  margin-top: 40px;
+}
+
 .services .container-fluid {
   position: relative;
   z-index: 50;

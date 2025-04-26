@@ -31,6 +31,8 @@ var MyScroll = "";
       Init.niceSelect();
       Init.formValidation();
       Init.contactForm();
+
+      Init.imageFlipCards();
     },
 
     w: function (e) {
@@ -127,6 +129,8 @@ var MyScroll = "";
       });
     },
 
+ 
+
     // Smooth Scrollbar
     smoothScrollbar: function () {
       if ($("body").hasClass("tt-smooth-scroll")) {
@@ -192,7 +196,7 @@ var MyScroll = "";
           const animation = compStyles.getPropertyValue('animation');
           const animationTime = parseFloat(animation.match(/\d*[.]?\d+/)) * 1000;
 
-          const phrases = ['Web Development:', 'Web Design:', 'Web Rank:'];
+          const phrases = ['Global CyberGuard:', 'La mejor empresa en:'];
 
           i = randomNum(i, phrases.length);
           const newPhrase = phrases[i];
@@ -381,6 +385,42 @@ var MyScroll = "";
           return false;
         }
       });
+    },
+
+     // Imagen Flip Cards
+     imageFlipCards: function() {
+      if ($(".vertical-slider").length) {
+        const initializeSliders = () => {
+          const sliders = document.querySelectorAll('.slide-container');
+          
+          sliders.forEach(slider => {
+            // Añadir indicador de flip
+            const indicator = document.createElement('div');
+            indicator.className = 'flip-indicator';
+            indicator.innerHTML = '↻';
+            slider.appendChild(indicator);
+
+            // Evento de click
+            slider.addEventListener('click', function() {
+              this.classList.toggle('flipped');
+            });
+
+            // Efecto hover
+            slider.addEventListener('mouseenter', function() {
+              this.classList.add('hover');
+            });
+
+            slider.addEventListener('mouseleave', function() {
+              this.classList.remove('hover');
+            });
+          });
+        };
+
+        // Inicializar cuando el DOM esté listo
+        $(document).ready(function() {
+          initializeSliders();
+        });
+      }
     },
 
   };
