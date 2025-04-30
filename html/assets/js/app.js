@@ -31,8 +31,9 @@ var MyScroll = "";
       Init.niceSelect();
       Init.formValidation();
       Init.contactForm();
-
+      Init.portfolioSlider();
       Init.imageFlipCards();
+      Init.initAccordion();
     },
 
     w: function (e) {
@@ -129,7 +130,88 @@ var MyScroll = "";
       });
     },
 
- 
+  // Portfolio Slider
+  portfolioSlider: function() {
+    if ($(".swiper-container").length) {
+        const swiper = new Swiper('.swiper-container', {
+            effect: 'coverflow',
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 'auto',
+            coverflowEffect: {
+                rotate: 0,
+                stretch: 0,
+                depth: 150,
+                modifier: 2.5,
+                slideShadows: false,
+            },
+            loop: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            on: {
+                init: function() {
+                    $('.swiper-slide-active').removeClass('blur-effect');
+                },
+                slideChange: function() {
+                    $('.swiper-slide').addClass('blur-effect');
+                    $('.swiper-slide-active').removeClass('blur-effect');
+                }
+            }
+        });
+    }
+},
+
+// Acordeón con cambio de imagen
+initAccordion: function() {
+  if ($(".accordion-item").length) {
+      // Función para actualizar imagen con animación
+      function updateFeaturedImage(imageSrc) {
+          $("#featured-image").fadeOut(300, function() {
+              $(this).attr("src", imageSrc).fadeIn(300);
+          });
+      }
+
+      // Inicializar acordeón
+      const accordionItems = document.querySelectorAll('.accordion-item');
+      accordionItems.forEach(item => {
+          const header = item.querySelector('.accordion-header');
+          const content = item.querySelector('.accordion-content');
+          
+          header.addEventListener('click', () => {
+              const isActive = item.classList.contains('active');
+              const imageSrc = header.getAttribute('data-image');
+              
+              // Cerrar todos los items
+              accordionItems.forEach(accItem => {
+                  accItem.classList.remove('active');
+                  accItem.querySelector('.accordion-content').style.display = 'none';
+              });
+              
+              // Abrir el item actual
+              if (!isActive) {
+                  item.classList.add('active');
+                  content.style.display = 'block';
+                  if (imageSrc) {
+                      updateFeaturedImage(imageSrc);
+                  }
+              }
+          });
+      });
+
+      // Función para mostrar secciones por categoría
+      window.mostrarAcordeon = function(id) {
+          const secciones = ['educacion', 'dia', 'gobierno', 'juridica'];
+          secciones.forEach(function(item) {
+              $(`.accordion-section[data-section="${item}"]`).toggle(item === id);
+          });
+      }
+
+      // Mostrar primera sección por defecto
+      mostrarAcordeon('educacion');
+  }
+},
 
     // Smooth Scrollbar
     smoothScrollbar: function () {
@@ -422,6 +504,8 @@ var MyScroll = "";
         });
       }
     },
+
+    
 
   };
 

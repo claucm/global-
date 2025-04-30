@@ -22,6 +22,12 @@
     <link rel="stylesheet" href="assets/css/vendor/nice-select.css">
     <link rel="stylesheet" href="assets/css/app.css">
 
+    <!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 </head>
 
 <body class="tt-smooth-scroll">
@@ -120,7 +126,7 @@
             <div class="brand-slider">
                 <div class="brand-slide">
                     <div class="brand-block">
-                        <img src="assets/media/brands/brand-1.png" alt="">
+                        <img src="assets/media/brands/fondos_oscuros.svg" alt="">
                     </div>
                 </div>
                 <div class="brand-slide">
@@ -206,7 +212,10 @@
                     <ul class="nav nav-tabs mb-48" id="myTab" role="tablist">
                         <li class="nav-item" role="presentation">
                             <button class="nav-link active" id="all-tab" data-bs-toggle="tab" data-bs-target="#all"
-                                type="button" role="tab" aria-controls="all" aria-selected="true">Asistentes digitales </button>
+                                type="button" role="tab" aria-controls="all" aria-selected="true" 
+                                onclick="window.location.href='#asistentes-section'">
+                                Asistentes digitales
+                            </button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="web-tab" data-bs-toggle="tab" data-bs-target="#web"
@@ -220,101 +229,39 @@
                             <button class="nav-link" id="uidesign-tab" data-bs-toggle="tab" data-bs-target="#uidesign"
                                 type="button" role="tab" aria-controls="uidesign" aria-selected="false">Subra Meetings</button>
                         </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="uidesign-tab" data-bs-toggle="tab" data-bs-target="#traductor"
+                                type="button" role="tab" aria-controls="traductor" aria-selected="false">Traductor</button>
+                        </li>
+                        
                         
                     </ul>
                     <!-- *-*-*-*-*-*-*-*-* Tabs *-*-*-*-*-*-*-*-*-* -->
-                    <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
-                            <div class="tab-wrapper">
-                                <div class="row">
-                                    <div class="col-xl-6 col-lg-6 col-6">
-                                        <img src="assets/media/images/tab-image-1.png" alt="" class="tab-image">
-                                    </div>
-                                    <div class="col-xl-6 col-lg-6 col-6">
-                                        <img src="assets/media/images/tab-image-2.png" alt="" class="tab-image">
-                                    </div>
-                                    <div class="col-xl-6 col-lg-6 col-6">
-                                        <img src="assets/media/images/tab-image-3.png" alt="" class="tab-image">
-                                    </div>
-                                    <div class="col-xl-6 col-lg-6 col-6">
-                                        <img src="assets/media/images/tab-image-4.png" alt="" class="tab-image">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="web" role="tabpanel" aria-labelledby="web-tab">
-                            <div class="tab-wrapper">
-                                <div class="row">
-                                    <div class="col-xl-6 col-lg-6 col-6">
-                                        <img src="assets/media/images/tab-image-1.png" alt="" class="tab-image">
-                                    </div>
-                                    <div class="col-xl-6 col-lg-6 col-6">
-                                        <img src="assets/media/images/tab-image-2.png" alt="" class="tab-image">
-                                    </div>
-                                    <div class="col-xl-6 col-lg-6 col-6">
-                                        <img src="assets/media/images/tab-image-3.png" alt="" class="tab-image">
-                                    </div>
-                                    <div class="col-xl-6 col-lg-6 col-6">
-                                        <img src="assets/media/images/tab-image-4.png" alt="" class="tab-image">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="appdesign" role="tabpanel" aria-labelledby="appdesign-tab">
-                            <div class="tab-wrapper">
-                                <div class="row">
-                                    <div class="col-xl-6 col-lg-6 col-6">
-                                        <img src="assets/media/images/tab-image-1.png" alt="" class="tab-image">
-                                    </div>
-                                    <div class="col-xl-6 col-lg-6 col-6">
-                                        <img src="assets/media/images/tab-image-2.png" alt="" class="tab-image">
-                                    </div>
-                                    <div class="col-xl-6 col-lg-6 col-6">
-                                        <img src="assets/media/images/tab-image-3.png" alt="" class="tab-image">
-                                    </div>
-                                    <div class="col-xl-6 col-lg-6 col-6">
-                                        <img src="assets/media/images/tab-image-4.png" alt="" class="tab-image">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="uidesign" role="tabpanel" aria-labelledby="uidesign-tab">
-                            <div class="tab-wrapper">
-                                <div class="row">
-                                    <div class="col-xl-6 col-lg-6 col-6">
-                                        <img src="assets/media/images/tab-image-1.png" alt="" class="tab-image">
-                                    </div>
-                                    <div class="col-xl-6 col-lg-6 col-6">
-                                        <img src="assets/media/images/tab-image-2.png" alt="" class="tab-image">
-                                    </div>
-                                    <div class="col-xl-6 col-lg-6 col-6">
-                                        <img src="assets/media/images/tab-image-3.png" alt="" class="tab-image">
-                                    </div>
-                                    <div class="col-xl-6 col-lg-6 col-6">
-                                        <img src="assets/media/images/tab-image-4.png" alt="" class="tab-image">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="figma" role="tabpanel" aria-labelledby="figma-tab">
-                            <div class="tab-wrapper">
-                                <div class="row">
-                                    <div class="col-xl-6 col-lg-6 col-6">
-                                        <img src="assets/media/images/tab-image-1.png" alt="" class="tab-image">
-                                    </div>
-                                    <div class="col-xl-6 col-lg-6 col-6">
-                                        <img src="assets/media/images/tab-image-2.png" alt="" class="tab-image">
-                                    </div>
-                                    <div class="col-xl-6 col-lg-6 col-6">
-                                        <img src="assets/media/images/tab-image-3.png" alt="" class="tab-image">
-                                    </div>
-                                    <div class="col-xl-6 col-lg-6 col-6">
-                                        <img src="assets/media/images/tab-image-4.png" alt="" class="tab-image">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                  <!-- Modificar la sección de tabs -->
+<!-- Prtafolio -->
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <img src="assets/media/images/sena-gpt.png" alt="tab-image">
+        </div>
+        <div class="swiper-slide">
+            <img src="assets/media/images/ingles-gpt.png" alt="tab-image">
+        </div>
+        <div class="swiper-slide">
+            <img src="assets/media/images/spanish-gpt.png" alt="tab-image">
+        </div>
+        <div class="swiper-slide">
+            <img src="assets/media/images//tab-image-4.png" alt="tab-image">
+        </div>
+        <div class="swiper-slide">
+            <img src="assets/media/images//tab-image-1.png" alt="tab-image">
+        </div>
+    </div>
+</div>
+</div>
+</div>
+  
+  
                 </div>
             </div>
         </section>
@@ -348,17 +295,24 @@
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6">
-                                <div class="service-text text-center">
-                                    <h2 class="white mb-16">Asistentes <BR>digitales </BR> </h2>
+                                <div class="service-text text-center" id="asistentes-section">
+                                    <h2 class="white mb-16">Asistentes <BR>digitales</BR></h2>
                                     <ul class="list-unstyled">
                                         <li class="label p-18 dark-black">Educativos</li>
                                         <li class="label p-18 dark-black">Jurídicos</li>
-                                        <li class="label p-18 dark-black">Legales</li>
+                                        <li class="label p-18 dark-black">Gubernamentales</li>
+                                        <li class="label p-18 dark-black">Día a Día</li>
                                     </ul>
                                     <p class="medium-gray mb-32">Conoce nuestras soluciones asistidas por IA prácticas, seguras y eficientes que potencian tu productividad y facilitan la toma de decisiones en contextos clave.</p>
-                                    <a class="cus-btn m-auto" href="asistentes/services_juridico.html">
-                                        <span>Ir a la sección</span>
-                                    </a>
+                                    <div class="btn-group">
+                                        <a class="cus-btn m-auto" href="asistentes/services_juridico.html">
+                                            <span>Ir a la sección</span>
+                                        </a>
+                                        <!-- Agregamos el enlace de regreso al inicio -->
+                                        <a class="cus-btn m-auto" href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+                                            <span>Volver arriba</span>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -383,7 +337,7 @@
                                         <li class="label p-18 dark-black">Audio</li>
                                         <li class="label p-18 dark-black">Bolsa</li>
                                         <li class="label p-18 dark-black">Róbotica</li>
-                                        <li class="label p-18 dark-black">Otros</li>
+                                        <li class="label p-18 dark-black">Tecnologías Emergentes</li>
                                     </ul>
                                     <p class="medium-gray mb-32">En Global CyberGuard diseñamos soluciones personalizadas que combinan ingeniería, datos e inteligencia artificial<br>para resolver desafíos reales en sectores como audio, bolsa, robótica y más.</p>
                                     <a class="cus-btn m-auto" href="services.html">

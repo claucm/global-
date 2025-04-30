@@ -3482,6 +3482,12 @@ footer .blur .animate-3 {
     height: clamp(280px, 24.323vw, 550px);
   }
 }
+
+.image-block img,
+.hover-block img {
+    border-radius: 15px;
+    overflow: hidden;
+}
 .services .services-wrapper .service-block:hover .text-box .service-number {
   transition: all 0.5s ease-in-out;
   opacity: 0;
@@ -4955,3 +4961,276 @@ footer .blur .animate-3 {
 }
 
 /*# sourceMappingURL=app.css.map */
+
+ /*Estilos para el scroll horizontal en el HOME */
+ .swiper-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.swiper-slide {
+  width: auto;
+  min-width: 60px; /* Más pequeño */
+  height: 45px;     /* Más bajo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Escala más discreta para los inactivos */
+.swiper-slide:not(.swiper-slide-active) {
+  transform: scale(0.6);
+  opacity: 0.4;
+}
+
+/* Escala reducida para el activo */
+.swiper-slide-active {
+  transform: scale(0.75);
+  opacity: 1;
+}
+
+/* Grupos para volver a home desde secciones */
+
+.btn-group {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+}
+
+.service-text {
+  scroll-margin-top: 100px; /* Ajusta el margen superior al hacer scroll */
+}
+
+/* SECCIÓN ACORDEON ASISTENTES DIGITALES */
+
+/* Contenedor principal */
+.content-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  gap: 30px;
+  padding: 20px;
+}
+
+/* Contenedor de imagen principal */
+/* Contenedor de imagen principal */
+.main-image-container {
+  position: sticky;
+  top: 100px;
+  max-width: 500px; /* Limitar el ancho máximo */
+  margin: 0 auto; /* Centrar la imagen */
+}
+
+#featured-image {
+  transition: opacity 0.3s ease;
+  width: 100%;
+  height: auto;
+  max-height: 400px; /* Limitar la altura máxima */
+  border-radius: 15px;
+  object-fit: cover; /* Mantener la proporción de la imagen */
+}
+
+/* Ajuste responsive */
+@media (max-width: 992px) {
+  .main-image-container {
+      max-width: 400px;
+  }
+
+  #featured-image {
+      max-height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-image-container {
+      max-width: 100%;
+  }
+}
+
+/* Icono + de los botones */ 
+.accordion-header .icon {
+  width: 24px;
+  height: 24px;
+  background: #1a237e;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  margin-left: 10px;
+}
+
+.accordion-item.active .accordion-header .icon {
+  background: #4a148c;
+  transform: rotate(45deg);
+}
+
+/* Hover effect */
+.accordion-header:hover .icon {
+  background: #4a148c;
+  box-shadow: 0 0 10px rgba(74, 20, 140, 0.5);
+}
+
+/* Ajuste el espaciado del header */
+.accordion-header {
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Acordeón */
+.accordion-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 100%;
+}
+
+.accordion-item {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.accordion-header {
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.accordion-title {
+  flex-grow: 1;
+  font-size: 16px;
+  color: white;
+}
+
+.accordion-content {
+  display: none;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.02);
+  position: relative;
+  min-height: 120px;
+}
+
+/* Estilos para el botón de Acceder dentro del acordeón */
+.accordion-content .cus-btn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(45deg, #1a237e, #3076FE);
+  padding: 6px 16px; /* Reducido el padding */
+  border-radius: 8px;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 14px; /* Texto más pequeño */
+  min-width: auto; /* Eliminar ancho mínimo */
+  width: auto; /* Ancho automático */
+  height: auto; /* Altura automática */
+}
+
+.accordion-content .cus-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(26, 35, 126, 0.3);
+}
+
+/* Eliminar la flecha */
+.accordion-content .cus-btn span {
+  display: inline; /* Cambiar de flex a inline */
+  background: transparent; /* Eliminar fondo */
+}
+
+/* Eliminar el pseudoelemento que crea la flecha */
+.accordion-content .cus-btn span::after {
+  display: none;
+}
+
+/* Estilos para los botones de filtro Botones */
+/* Estilos para los botones de filtro */
+.filter-btn {
+  padding: 12px 25px;
+  /* Solo azul con gradiente */
+  background: linear-gradient(45deg, #1a237e, #3076FE);
+  color: #FFFCFA;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(26, 35, 126, 0.2);
+}
+
+.filter-btn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(45deg, #3076FE, #1a237e);
+  box-shadow: 0 6px 20px rgba(48, 118, 254, 0.3);
+}
+
+.filter-btn.active {
+  background: linear-gradient(45deg, #1a237e, #2560d6);
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(48, 118, 254, 0.5);
+}
+
+/* Mantener el efecto de brillo pero en azul */
+.filter-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(48, 118, 254, 0.2),
+      transparent
+  );
+  transition: 0.5s;
+}
+.filter-btn.active {
+  background: linear-gradient(45deg, #311b92);
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(74, 20, 140, 0.5);
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 48px;
+}
+
+@media (max-width: 768px) {
+  .filter-buttons {
+      flex-wrap: wrap;
+      gap: 10px;
+  }
+  
+  .filter-btn {
+      padding: 10px 20px;
+      font-size: 14px;
+  }
+}
