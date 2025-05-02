@@ -44,10 +44,26 @@ var MyScroll = "";
 
     // Preloader
     preloader: function () {
-      setTimeout(function () {
-        $("#preloader").hide("slow");
-      }, 3000);
-    },
+      //setTimeout(function () {
+        //$("#preloader").hide("slow");
+      //}, 3000);
+   // },
+
+   $(".header-logo").css({
+    'opacity': '0',
+    'transform': 'translateY(20px)'
+});
+
+setTimeout(function () {
+    $("#preloader").fadeOut('slow');
+    // Animar el logo después de que el preloader desaparezca
+    $(".header-logo").css({
+        'transition': 'all 0.8s ease',
+        'opacity': '1',
+        'transform': 'translateY(0)'
+    });
+}, 3000);
+},
 
 
     // Header 

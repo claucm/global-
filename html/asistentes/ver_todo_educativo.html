@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Techsync">
+
+    <title>Asistentes Legales - TechSync</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/media/favicon.png">
+
+    <!-- All CSS files -->
+    <link rel="stylesheet" href="../assets/css/vendor/font-awesome.css">
+    <link rel="stylesheet" href="../assets/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/app.css">
+
+    <!-- Estilos del carrusel vertical -->
+    <style>
+        .vertical-slider {
+            position: relative;
+        height: 300px;
+        width: 300px;
+        margin: 0 auto;
+        perspective: 1000px;
+    }
+
+    .slide-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+        cursor: pointer;
+    }
+
+    .slide {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        border-radius: 15px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(5px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .slide img {
+        width: 80%;
+        height: 80%;
+        object-fit: contain;
+        padding: 20px;
+    }
+    .slide:nth-child(2) {
+        transform: rotateY(180deg);
+    }
+
+    .slide-container.flipped {
+        transform: rotateY(180deg);
+    }
+
+    /* Eliminar los botones de flechas ya que usaremos click en la imagen */
+    .slider-arrow {
+        display: none;
+    }
+
+    /* Añadir indicador de click */
+    .slide::after {
+        content: '↻';
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        color: white;
+        font-size: 20px;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .slide:hover::after {
+        opacity: 0.8;
+    }
+    .hover-block.v-2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 15px; /* Reducido de 20px */
+        margin-top: -30px; /* Nuevo - ajusta la posición vertical */
+    }
+
+    .service-text.text-v2 {
+        margin-top: 20px; /* Nuevo - reduce el espacio */
+    }
+   
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .vertical-slider {
+            width: 250px;
+            height: 250px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .vertical-slider {
+            width: 200px;
+            height: 200px;
+        }
+    }
+
+    .hover-block.v-2 {
+            margin-top: -15px;
+        }
+
+    .testimonial-card {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        padding: 24px;
+        height: 100%;
+        transition: transform 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .testimonial-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 16px;
+    }
+
+    .platform-icon {
+        width: 32px;
+        height: 32px;
+    }
+
+    .rating {
+        color: #FFD700;
+        font-size: 14px;
+    }
+
+    .testimonial-text {
+        font-size: 15px;
+        line-height: 1.6;
+        margin-bottom: 16px;
+        font-style: italic;
+    }
+
+    .testimonial-author {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 16px;
+    }
+
+    .author-name {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 4px;
+    }
+
+    .author-role {
+        font-size: 14px;
+        color: #AB47BC;
+        margin: 0;
+    }
+
+    @media (max-width: 768px) {
+        .testimonial-card {
+            margin-bottom: 24px;
+        }
+    }
+
+    .innovation-banner {
+        position: relative;
+        padding: 40px 0;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+    .tech-animation {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+    }
+
+    .tech-line {
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #3076FE, transparent);
+        animation: techLine 3s infinite;
+    }
+
+    .tech-line:nth-child(1) {
+        top: 20%;
+        animation-delay: 0s;
+    }
+
+    .tech-line:nth-child(2) {
+        top: 50%;
+        animation-delay: 1s;
+    }
+
+    .tech-line:nth-child(3) {
+        top: 80%;
+        animation-delay: 2s;
+    }
+
+    .innovation-banner {
+        position: relative;
+        padding: 60px 0;
+        background: rgba(12, 12, 13, 0.8);
+        border-radius: 15px;
+        overflow: hidden;
+        height: 300px; /* Altura fija para el banner */
+    }
+
+    .tech-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.3;
+        z-index: 0;
+    }
+
+    .tech-animation {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+
+    .content-overlay {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+
+    .content-overlay h4 {
+        font-size: 42px;
+        margin-bottom: 16px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        text-shadow: 0 0 20px rgba(48, 118, 254, 0.8);
+    }
+
+    .content-overlay p {
+        font-size: 18px;
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    @media (max-width: 768px) {
+        .innovation-banner {
+            height: 250px;
+        }
+        .content-overlay h4 {
+            font-size: 32px;
+        }
+        .content-overlay p {
+            font-size: 16px;
+        }
+    }
+
+    </style>
+</head>
+
+<body class="tt-smooth-scroll">
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="darksoul-layout">
+            <div class="darksoul-grid">
+                <div class="item1"></div>
+                <div class="item3"></div>
+            </div>
+            <h3 class="darksoul-loader-h">Global CyberGuard</h3>
+        </div>
+    </div>
+
+    <div id="scroll-container">
+        <!-- Header Menu Start -->
+        <header class="mb-100">
+            <nav class="main-menu">
+                <div class="container-fluid">
+                    <div class="main-menu__block">
+                        <div class="main-menu__logo">
+                            <a href="../index.html">
+                                <img src="../assets/media/global2.png" alt="" class="header-logo">
+                            </a>
+                        </div>
+                        <div class="menu-button-right">
+                            <div class="main-menu__nav">
+                                <ul class="main-menu__list">
+                                    <li><a href="../index.html">Inicio</a></li>
+                                    <li><a href="../about.html">Sobre nosotros</a></li>
+                                    <li><a href="../services.html" class="active">Servicios</a></li>
+                                    <li><a href="../contact.html">Contacto</a></li>
+                                </ul>
+                            </div>
+                            <div class="main-menu__right">
+                                <a class="cus-btn d-sm-flex d-none" href="../contact.html">
+                                    <span>¿Hablamos?</span>
+                                </a>
+                                <a href="#" class="main-menu__toggler mobile-nav__toggler">
+                                    <img src="../assets/media/vector/menu.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+          <!-- Sección de título -->
+    <div class="container mb-60">
+        <div class="row justify-content-center text-center">
+            <div class="col-lg-8">
+                <h2 class="section-title white mb-24">Todos los Asistentes Educativos</h2>
+                <p class="section-description medium-gray mb-48">
+                    Explora nuestra colección de asistentes virtuales diseñados para apoyar el aprendizaje en diversas materias, habilidades y niveles educativos. Cada asistente está enfocado en ayudarte a estudiar, practicar y avanzar de forma personalizada y efectiva.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filtros -->
+  
+<!-- Grid de cards -->
+<div class="container mb-100">
+    <div class="assistants-grid">
+      <!-- Card 1 -->
+      <div class="assistant-card" data-category="educacion">
+        <div class="card-image">
+          <img src="../assets/media/images/educacion/mandarin-e.png" alt="Aprende Inglés">
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Aprende Chino Mandarin</h3>
+          <p class="card-description">Este asistente ofrece lecciones personalizadas, práctica de conversación y escritura. Ideal para todos los niveles.</p>
+          <a href="https://chatgpt.com/g/g-678042dd23508191a307b67893ff0a44-aprende-chino-mandarin" class="card-btn" target="_blank">Abrir</a>
+        </div>
+      </div>
+  
+      <!-- Card 2 -->
+      <div class="assistant-card" data-category="educacion">
+        <div class="card-image">
+          <img src="../assets/media/images/educacion/portugues-e.png" alt="Aprende Inglés">
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Aprende Portugués</h3>
+          <p class="card-description">Domina el idioma y su cultura con nuestro asistente virtual interactivo! Ideal para viajeros, negocios o amantes de la música y la gastronomía</p>
+          <a href="https://chatgpt.com/g/g-678047eccb70819197a2d0c2097ea5a4-aprende-portugues" class="card-btn" target="_blank">Abrir</a>
+        </div>
+      </div>
+  
+      <!-- 3 -->
+      <div class="assistant-card" data-category="educacion">
+        <div class="card-image">
+          <img src="../assets/media/images/educacion/frances.png" alt="Aprende Inglés">
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Aprende Francés</h3>
+          <p class="card-description">Aprende francés de forma práctica, interactiva y divertida! Domina vocabulario, gramática y conversación en contextos reales, adaptado a tu nivel y objetivos.</p>
+          <a href="https://chatgpt.com/g/g-67804b3ea6108191880c0e218e81fa59-aprende-frances" class="card-btn" target="_blank">Abrir</a>
+        </div>
+      </div>
+
+         <!-- 4 -->
+         <div class="assistant-card" data-category="educacion">
+            <div class="card-image">
+              <img src="../assets/media/images/ingles-gpt.png" alt="Aprende Inglés">
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Aprende Hindi</h3>
+              <p class="card-description">Aprende hindi de forma interactiva y práctica: domina el alfabeto, vocabulario esencial y conversaciones reales mientras exploras la cultura india</p>
+              <a href="https://chatgpt.com/g/g-678044636b4c8191b150bc933ef47361-aprende-hindi" class="card-btn" target="_blank">Abrir</a>
+            </div>
+          </div>
+
+             <!-- 5 -->
+         <div class="assistant-card" data-category="educacion">
+            <div class="card-image">
+              <img src="../assets/media/images/ingles-gpt.png" alt="Aprende Inglés">
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Aprende Árabe</h3>
+              <p class="card-description">Domina el idioma y descubre la cultura árabe con lecciones personalizadas, simulaciones reales y herramientas innovadoras para todos los niveles.</p>
+              <a href="https://chatgpt.com/g/g-67804de52e8081919e721282b73f8d90-aprende-arabe" class="card-btn" target="_blank">Abrir</a>
+            </div>
+          </div>
+
+              <!-- 6 -->
+         <div class="assistant-card" data-category="educacion">
+            <div class="card-image">
+              <img src="../assets/media/images/ingles-gpt.png" alt="Aprende Inglés">
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Aprende Bengali</h3>
+              <p class="card-description">Descubre el idioma, la cultura y las tradiciones con nuestro asistente virtual personalizado. Perfecto para viajeros, estudiantes y apasionados de la lengua.</p>
+              <a href="https://chatgpt.com/g/g-6780598d7d3c81918870735d7e64467c-aprende-bengali" class="card-btn" target="_blank">Abrir</a>
+            </div>
+          </div>
+
+             <!-- 7 -->
+         <div class="assistant-card" data-category="educacion">
+            <div class="card-image">
+              <img src="../assets/media/images/ingles-gpt.png" alt="Aprende Inglés">
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Aprende Ruso</h3>
+              <p class="card-description">Aprende ruso de manera interactiva y práctica! Descubre el alfabeto cirílico, domina frases esenciales y sumérgete en la cultura rusa con nuestro asistente virtual personalizado.</p>
+              <a href="https://chatgpt.com/g/g-67805bdd19c4819181893546aa30882f-aprende-ruso" class="card-btn" target="_blank">Abrir</a>
+            </div>
+          </div>
+
+          <!-- 8 -->
+         <div class="assistant-card" data-category="educacion">
+            <div class="card-image">
+              <img src="../assets/media/images/ingles-gpt.png" alt="Aprende Inglés">
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Aprende Alemán</h3>
+              <p class="card-description">Aprende alemán de manera fácil, práctica y divertida con nuestro asistente interactivo: vocabulario, gramática, conversación y cultura alemana adaptados a tus objetivos</p>
+              <a href="https://chatgpt.com/g/g-6780613d480081919cadc9537ab9826f-aprende-aleman" class="card-btn" target="_blank">Abrir</a>
+            </div>
+          </div>
+
+          
+          <!-- 9 -->
+         <div class="assistant-card" data-category="educacion">
+            <div class="card-image">
+              <img src="../assets/media/images/ingles-gpt.png" alt="Aprende Inglés">
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Aprende Portugués</h3>
+              <p class="card-description">Domina el idioma y la cultura lusófona...</p>
+              <a href="#" class="card-btn" target="_blank">Abrir</a>
+            </div>
+          </div>
+
+             <!-- 10 -->
+         <div class="assistant-card" data-category="educacion">
+            <div class="card-image">
+              <img src="../assets/media/images/ingles-gpt.png" alt="Aprende Inglés">
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Aprende Japonés</h3>
+              <p class="card-description">Aprende Japonés de manera interactiva y divertida con nuestro asistente virtual: ¡Escribe, habla y sumérgete en la cultura japonesa como nunca antes!</p>
+              <a href="https://chatgpt.com/g/g-678062a529e081919518875668562e8f-aprende-japones" class="card-btn" target="_blank">Abrir</a>
+            </div>
+          </div>
+
+          <!-- Card 11 -->
+      <div class="assistant-card" data-category="educacion">
+        <div class="card-image">
+          <img src="../assets/media/images/ingles-gpt.png" alt="Aprende Inglés">
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Aprende Panjabí</h3>
+          <p class="card-description">Aprende Panjabí de manera fácil, interactiva y divertida: domina el idioma, explora su rica cultura y prepárate para conectar con el mundo panjabí.</p>
+          <a href="https://chatgpt.com/g/g-678064da65008191a560094073f811c7-aprende-panjabi" class="card-btn" target="_blank">Abrir</a>
+        </div>
+      </div>
+  
+      <!-- Card 12 -->
+      <div class="assistant-card" data-category="educacion">
+        <div class="card-image">
+          <img src="../assets/media/images/ingles-gpt.png" alt="Aprende Inglés">
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Aprende Coreano</h3>
+          <p class="card-description">¡Aprende coreano de forma interactiva y divertida con nuestro asistente virtual! Domina el Hangul, practica conversaciones reales y descubre la fascinante cultura coreana a tu ritmo.</p>
+          <a href="https://chatgpt.com/g/g-678066c757d081919fea5abd1f0bf07d-aprende-coreano" class="card-btn" target="_blank">Abrir</a>
+        </div>
+      </div>
+  
+      <!-- 13 -->
+      <div class="assistant-card" data-category="educacion">
+        <div class="card-image">
+          <img src="../assets/media/images/ingles-gpt.png" alt="Aprende Inglés">
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Licencia de piloto comercial CPL</h3>
+          <p class="card-description">Preparación para el examen CPL con guías detalladas y simulacros prácticos.</p>
+          <a href="https://chatgpt.com/g/g-675293469ecc81919e5db8c8d4689377-commercial-pilot-license-cpl" class="card-btn" target="_blank">Abrir</a>
+        </div>
+      </div>
+
+         <!-- 15 -->
+         <div class="assistant-card" data-category="educacion">
+            <div class="card-image">
+              <img src="../assets/media/images/ingles-gpt.png" alt="Aprende Inglés">
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Aprende Portugués</h3>
+              <p class="card-description">Domina el idioma y la cultura lusófona...</p>
+              <a href="#" class="card-btn" target="_blank">Abrir</a>
+            </div>
+          </div>
+
+             <!-- 5 -->
+         <div class="assistant-card" data-category="educacion">
+            <div class="card-image">
+              <img src="../assets/media/images/ingles-gpt.png" alt="Aprende Inglés">
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Análisis Electoral Colombia</h3>
+              <p class="card-description">Brinda datos históricos, normativos y estadísticas para análisis electoral en tiempo real.</p>
+              <a href="https://chatgpt.com/g/g-674e9003293481919c41f761031a7ea9-analisis-electoral-colombia" class="card-btn" target="_blank">Abrir</a>
+            </div>
+          </div>
+
+              <!-- 16 -->
+         <div class="assistant-card" data-category="educacion">
+            <div class="card-image">
+              <img src="../assets/media/images/ingles-gpt.png" alt="Aprende Inglés">
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Tu Aliado Académico</h3>
+              <p class="card-description">Guías de redacción, citación y acceso a bases de datos confiables para trabajos académicos.</p>
+              <a href="https://chatgpt.com/g/g-67527b808d788191b5f5809c5e2d3f3a-tu-aliado-academico" class="card-btn" target="_blank">Abrir</a>
+            </div>
+          </div>
+
+             <!-- 17 -->
+         <div class="assistant-card" data-category="educacion">
+            <div class="card-image">
+              <img src="../assets/media/images/ingles-gpt.png" alt="Aprende Inglés">
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Ofimática | Office Automation</h3>
+              <p class="card-description">Asistencia para herramientas de productividad como Microsoft Office y Google Workspace.</p>
+              <a href="https://chatgpt.com/g/g-674e6a42d7208191a30bc33413f0d8ac-ofimatica-office-automation" class="card-btn" target="_blank">Abrir</a>
+            </div>
+          </div>
+
+          <!-- 18 -->
+         <div class="assistant-card" data-category="educacion">
+            <div class="card-image">
+              <img src="../assets/media/images/ingles-gpt.png" alt="Aprende Inglés">
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Compara colegios según calificaciones</h3>
+              <p class="card-description">Compara colegios según rankings, calificaciones y programas académicos.</p>
+              <a href="https://chatgpt.com/g/g-6752885ecf048191a0472c6f9fd145a8-compara-colegios-segun-calificaciones" class="card-btn" target="_blank">Abrir</a>
+            </div>
+          </div>
+
+          
+          <!-- 19 -->
+         <div class="assistant-card" data-category="educacion">
+            <div class="card-image">
+              <img src="../assets/media/images/ingles-gpt.png" alt="Aprende Inglés">
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Asistente Escuela Naval de Suboficiales "ARC"</h3>
+              <p class="card-description">Información sobre el ingreso y formación en la Institución.</p>
+              <a href="https://chatgpt.com/g/g-675273ca94748191b7a9d70ca2acd760-asistente-escuela-naval-de-suboficiales-arc" class="card-btn" target="_blank">Abrir</a>
+            </div>
+          </div>
+
+             <!-- 20 -->
+         <div class="assistant-card" data-category="educacion">
+            <div class="card-image">
+              <img src="../assets/media/images/ingles-gpt.png" alt="Aprende Inglés">
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Asistente Escuela de Suboficiales y Nivel Ejecutivo</h3>
+              <p class="card-description">Soporte para estudiantes en esta institución policial.</p>
+              <a href="https://chatgpt.com/g/g-675275319c308191ad708eb5981c40ce-asistente-escuela-de-suboficiales-y-nivel-ejecutiv" class="card-btn" target="_blank">Abrir</a>
+            </div>
+          </div>
+
+               <!-- 21 -->
+         <div class="assistant-card" data-category="educacion">
+            <div class="card-image">
+              <img src="../assets/media/images/ingles-gpt.png" alt="Aprende Inglés">
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Asistente Académico Escolar</h3>
+              <p class="card-description">Responde preguntas académicas, genera gráficos y analiza documentos para estudiantes de nivel escolar.</p>
+              <a href="https://chatgpt.com/g/g-674e9c9e15748191b91bf7c1f036420c-asistente-academico-escolar" class="card-btn" target="_blank">Abrir</a>
+            </div>
+          </div>
+
+          <!-- 22 -->
+         <div class="assistant-card" data-category="educacion">
+            <div class="card-image">
+              <img src="../assets/media/images/ingles-gpt.png" alt="Aprende Inglés">
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Asistente Escuela Militar de Aviación Marco Fidel</h3>
+              <p class="card-description">Información sobre formación aeronáutica y académica en la Escuela Militar de Aviación.</p>
+              <a href="https://chatgpt.com/g/g-67526d9bbc9081919a74b7f0938e00fe-asistente-escuela-militar-de-aviacion-marco-fidel" class="card-btn" target="_blank">Abrir</a>
+            </div>
+          </div>
+
+          
+          <!-- 23 -->
+         <div class="assistant-card" data-category="educacion">
+            <div class="card-image">
+              <img src="../assets/media/images/ingles-gpt.png" alt="Aprende Inglés">
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Asistente Escuela Naval de Cadetes Colombia</h3>
+              <p class="card-description">Detalles sobre ingreso y formación en la Escuela Naval de Cadetes "Almirante Padilla".</p>
+              <a href="https://chatgpt.com/g/g-67526ccead148191b642fdcaf6340dd4-asistente-escuela-naval-de-cadetes-colombia" class="card-btn" target="_blank">Abrir</a>
+            </div>
+          </div>
+
+             <!-- 24 -->
+         <div class="assistant-card" data-category="educacion">
+            <div class="card-image">
+              <img src="../assets/media/images/ingles-gpt.png" alt="Aprende Inglés">
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Asistente Escuela Militar de Cadetes Colombia</h3>
+              <p class="card-description">Ofrece información sobre ingreso y formación militar en la Escuela de Cadetes "General José María Córdova"</p>
+              <a href="https://chatgpt.com/g/g-67526b8d226c819198d2db36c7c7fc14-asistente-escuela-militar-de-cadetes-colombia" class="card-btn" target="_blank">Abrir</a>
+            </div>
+          </div>
+
+           <!-- 25 -->
+         <div class="assistant-card" data-category="educacion">
+            <div class="card-image">
+              <img src="../assets/media/images/ingles-gpt.png" alt="Aprende Inglés">
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Aeronaves no tripuladas (drones)</h3>
+              <p class="card-description">Guías y regulaciones para operar drones de forma segura y responsable.</p>
+              <a href="https://chatgpt.com/g/g-67527a089f988191a23d3c76eabaaae6-aeronaves-no-tripuladas-drones" class="card-btn" target="_blank">Abrir</a>
+            </div>
+          </div>
+
+             <!-- 26 -->
+         <div class="assistant-card" data-category="educacion">
+            <div class="card-image">
+              <img src="../assets/media/images/ingles-gpt.png" alt="Aprende Inglés">
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Asistente virtual sobre aspersión aérea y drones</h3>
+              <p class="card-description">Soporte para uso de drones en la agricultura, con guías de aspersión y regulaciones.</p>
+              <a href="https://chatgpt.com/g/g-67527ace876c8191aa5ef92254ef912f-asistente-virtual-aspersion-aerea-y-drones" class="card-btn" target="_blank">Abrir</a>
+            </div>
+          </div>
+
+              <!-- 27 -->
+         <div class="assistant-card" data-category="educacion">
+            <div class="card-image">
+              <img src="../assets/media/images/ingles-gpt.png" alt="Aprende Inglés">
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Airline Transport Pilot (ATP)</h3>
+              <p class="card-description">Preparación para el examen ATP con guías prácticas y normativas avanzadas.</p>
+              <a href="https://chatgpt.com/g/g-675292928ad48191acbd80495abfa3da-airline-transport-pilot-atp" class="card-btn" target="_blank">Abrir</a>
+            </div>
+          </div>
+
+             <!-- 28 -->
+         <div class="assistant-card" data-category="educacion">
+            <div class="card-image">
+              <img src="../assets/media/images/ingles-gpt.png" alt="Aprende Inglés">
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Aprende a conducir y aprueba el examen</h3>
+              <p class="card-description">Guías prácticas y simulacros para aprobar el curso de conducción.</p>
+              <a href="https://chatgpt.com/g/g-675298ee90ac819180c25a8ce462ce7d-aprende-a-conducir-y-aprueba-el-examen" class="card-btn" target="_blank">Abrir</a>
+            </div>
+          </div>
+
+           <!-- 29 -->
+         <div class="assistant-card" data-category="educacion">
+            <div class="card-image">
+              <img src="../assets/media/images/ingles-gpt.png" alt="Aprende Inglés">
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Electoral Colombia</h3>
+              <p class="card-description">Brinda datos normativos e históricos para análisis electoral.</p>
+              <a href="https://chatgpt.com/g/g-674e8f1eee94819199612a3fb7aebec7-electoral-colombia" class="card-btn" target="_blank">Abrir</a>
+            </div>
+          </div>
+
+           <!-- 36 -->
+         <div class="assistant-card" data-category="educacion">
+            <div class="card-image">
+              <img src="../assets/media/images/ingles-gpt.png" alt="Aprende Inglés">
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Aprende y Optimiza Tus Inversiones en la Bolsa</h3>
+              <p class="card-description">Ofrece guías prácticas y consejos sobre estrategias financieras..</p>
+              <a href="https://chatgpt.com/g/g-6752858767508191a72815d6382ddd92-aprende-y-optimiza-tus-inversiones-en-la-bolsa" class="card-btn" target="_blank">Abrir</a>
+            </div>
+          </div>
+    </div>
+  </div>
+</div>
+</div>
+           
+
+                            
+                
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/vendor/jquery-3.6.3.min.js"></script>
+    <script src="../assets/js/vendor/bootstrap.min.js"></script>
+    <script src="../assets/js/vendor/jquery-validator.js"></script>
+    <script src="../assets/js/vendor/smooth-scrollbar.js"></script>
+    <script src="../assets/js/app.js"></script>
+
+    <!-- Carrusel Vertical Script -->
+    <script>
+        function nextSlide(button) {
+            const container = button.closest('.vertical-slider');
+            const slides = container.querySelectorAll('.slide');
+            const currentSlide = container.querySelector('.slide.active');
+            let nextIndex = Array.from(slides).indexOf(currentSlide) + 1;
+            
+            if (nextIndex >= slides.length) {
+                nextIndex = 0;
+            }
+            
+            currentSlide.classList.remove('active');
+            slides[nextIndex].classList.add('active');
+        }
+
+        function prevSlide(button) {
+            const container = button.closest('.vertical-slider');
+            const slides = container.querySelectorAll('.slide');
+            const currentSlide = container.querySelector('.slide.active');
+            let prevIndex = Array.from(slides).indexOf(currentSlide) - 1;
+            
+            if (prevIndex < 0) {
+                prevIndex = slides.length - 1;
+            }
+            
+            currentSlide.classList.remove('active');
+            slides[prevIndex].classList.add('active');
+        }
+
+        // Inicializar sliders
+        document.addEventListener('DOMContentLoaded', function() {
+            const sliders = document.querySelectorAll('.vertical-slider');
+            sliders.forEach(slider => {
+                const firstSlide = slider.querySelector('.slide');
+                if (firstSlide) {
+                    firstSlide.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -5234,3 +5234,137 @@ footer .blur .animate-3 {
       font-size: 14px;
   }
 }
+
+/* Espaciador entre secciones */
+.section-spacer {
+  height: 120px;
+  width: 100%;
+}
+
+.testimonials-section {
+  margin-top: 60px;
+  padding-top: 60px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .section-spacer {
+      height: 80px;
+  }
+  
+  .testimonials-section {
+      margin-top: 40px;
+      padding-top: 40px;
+  }
+}
+
+/* Estilos para el botón "Ver todo" */
+.view-all-wrapper {
+  display: flex;
+  justify-content: flex-end; /* Cambiado a flex-end para alinear a la derecha */
+  margin-top: 20px;
+  padding-right: 20px;
+}
+
+.view-all-btn {
+  padding: 8px 20px;
+  background: linear-gradient(45deg, #1a237e 60%, #3076FE 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.view-all-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(26, 35, 126, 0.3);
+  color: white;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .view-all-wrapper {
+      justify-content: flex-end; /* Mantener alineado a la derecha en móvil */
+      padding-right: 20px;
+  }
+}
+
+/* ANIMACION LOGO" */
+
+/* Estilos para la página de todos los asistentes */
+/* Grid de 5 cards por fila */
+.assistants-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.assistant-card {
+  background-color: #121212;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.assistant-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+.card-content {
+  padding: 16px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0 0 8px;
+  color: #ffffff;
+}
+
+.card-description {
+  font-size: 0.85rem;
+  color: #cccccc;
+  margin-bottom: 16px;
+  flex-grow: 1;
+}
+
+.card-btn {
+  align-self: flex-start;
+  background-color: #2f86ef;
+  color: white;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.card-btn:hover {
+  background-color: #1c5fbf;
+}
+
+/* Responsividad */
+@media (min-width: 1400px) {
+  .assistants-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+}
