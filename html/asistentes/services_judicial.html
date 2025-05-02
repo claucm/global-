@@ -310,15 +310,7 @@
                                 <ul class="main-menu__list">
                                     <li><a href="../index.html">Inicio</a></li>
                                     <li><a href="../about.html">Sobre nosotros</a></li>
-                                    <li class="has-submenu">
-                                        <a href="../services.html" class="active">Asistentes</a>
-                                        <ul class="submenu">
-                                            <li><a href="services_juridico.html">Educación</a></li>
-                                            <li><a href="services_dia.html">Día a Día</a></li>
-                                            <li><a href="services_gobierno.html">Gubernamental</a></li>
-                                            <li><a href="services_judicial.html">Jurídico</a></li>
-                                        </ul>
-                                    </li>
+                                    <!-- <li><a href="../services.html" class="active">Asistentes</a></li> -->
                                     <li><a href="../contact.html">Contacto</a></li>
                                 </ul>
                             </div>
@@ -336,191 +328,158 @@
             </nav>
         </header>
 
-          <!-- Sección de título -->
-    <div class="container mb-60">
-        <div class="row justify-content-center text-center">
-            <div class="col-lg-8">
-                <h2 class="section-title white mb-24">Todos los Asistentes de Día a Día</h2>
-                <p class="section-description medium-gray mb-48">
-                    Explora nuestra colección de asistentes virtuales diseñados para apoyar el aprendizaje en diversas materias, habilidades y niveles educativos. Cada asistente está enfocado en ayudarte a estudiar, practicar y avanzar de forma personalizada y efectiva.
-                </p>
+            <!-- Título y descripción de Asistentes Digitales -->
+            <div class="container mb-60">
+                <div class="row justify-content-center text-center">
+                    <div class="col-lg-8">
+                        <h2 class="section-title white mb-24">Asistentes Jurídicos</h2>
+                        <p class="section-description medium-gray mb-48">
+                            Descubre nuestra colección especializada de asistentes jurídicos impulsados por inteligencia artificial, diseñados para apoyarte en tu práctica legal diaria, facilitar el acceso a la información y optimizar tu productividad profesional.
+                        </p>
+                    </div>
+                </div>
             </div>
-        </div>
+
+<!-- Modificar la sección del acordeón -->
+<section class="acordeon-section">
+    <!-- Filtros superiores -->
+    <div class="filter-buttons text-center mb-48">
+        <button class="filter-btn" onclick="window.location.href='services_juridico.html'">Educación</button>
+        <button class="filter-btn" onclick="window.location.href='services_dia.html'">Día a día</button>
+        <button class="filter-btn" onclick="window.location.href='services_gobierno.html'">Gubernamental</button>
+        <button class="filter-btn" onclick="mostrarAcordeon('juridica')">Jurídico</button>
     </div>
 
-    <!-- Filtros -->
-  
-<!-- Grid de cards -->
-<div class="container mb-100">
-    <div class="assistants-grid">
-      <!-- Card 1 -->
-      <div class="assistant-card" data-category="educacion">
-        <div class="card-image">
-          <img src="../assets/media/images/dia/influencers.png" alt="Aprende Inglés">
+    <div class="content-wrapper">
+        <!-- Imagen grande izquierda -->
+        <div class="main-image-container">
+            <img id="featured-image" src="../assets/media/images/imagenia.jpg" alt="Featured Image" 
+                 class="featured-image">
         </div>
-        <div class="card-content">
-          <h3 class="card-title">Comparar Influencers y Streamers</h3>
-          <p class="card-description">Aprende estrategias para ser un creador de contenido y compara perfiles.</p>
-          <a href="https://chatgpt.com/g/g-67527760da588191b52cd18ee7dd1054-asistente-comparar-influencer-y-streamers" class="card-btn" target="_blank">Abrir</a>
-        </div>
-      </div>
-  
-      <!-- Card 2 -->
-      <div class="assistant-card" data-category="educacion">
-        <div class="card-image">
-          <img src="../assets/media/images/dia/rie.png" alt="Aprende Inglés">
-        </div>
-        <div class="card-content">
-          <h3 class="card-title">Ríe Sin Parar</h3>
-          <p class="card-description">Descubre los mejores comediantes y contenido humorístico.</p>
-          <a href="https://chatgpt.com/g/g-67527e8386e481919dcb22c8d335fda3-rie-sin-parar-descubre-los-mejores-comediantes class" class="card-btn" target="_blank">Abrir</a>
-        </div>
-      </div>
-  
-      <!-- 3 -->
-      <div class="assistant-card" data-category="educacion">
-        <div class="card-image">
-          <img src="../assets/media/images/dia/outfits.png" alt="Aprende Inglés">
-        </div>
-        <div class="card-content">
-          <h3 class="card-title">Asistente Selección de Outfits</h3>
-          <p class="card-description">Combina prendas según color, moda y preferencias personales.</p>
-          <a href="https://chatgpt.com/g/g-6752875b8f488191bd93999d10925373-asistente-seleccion-de-outfits" class="card-btn" target="_blank">Abrir</a>
-        </div>
-      </div>
-
-         <!-- 4 -->
-         <div class="assistant-card" data-category="educacion">
-            <div class="card-image">
-              <img src="../assets/media/images/dia/apelacion.png" alt="Aprende Inglés">
-            </div>
-            <div class="card-content">
-              <h3 class="card-title">Apelación de Infracciones de Tránsito en Colombia</h3>
-              <p class="card-description">Proporciona pasos claros para apelar infracciones de tránsito según la normativa colombiana.</p>
-              <a href="https://chatgpt.com/g/g-6735182a191c8190a17d4a548c363ef4-apelacion-de-infracciones-de-transito-en-colombia" class="card-btn" target="_blank">Abrir</a>
-            </div>
-          </div>
-
-             <!-- 5 -->
-         <div class="assistant-card" data-category="educacion">
-            <div class="card-image">
-              <img src="../assets/media/images/dia/talk.png" alt="Aprende Inglés">
-            </div>
-            <div class="card-content">
-              <h3 class="card-title">Traducir voz | Guía de viaje InfiniTalk</h3>
-              <p class="card-description">Traducción en tiempo real y guía interactiva para viajar sin barreras lingüísticas.</p>
-              <a href="https://chatgpt.com/g/g-673e51be898481918470aeac13c8026b-translate-voice-travel-guide-infinitalk" class="card-btn" target="_blank">Abrir</a>
-            </div>
-          </div>
-
     
+        <!-- Acordeón derecha -->
+        <div class="accordion-wrapper">
+            <!-- Ítem 1 -->
+            <div class="accordion-item">
+                <div class="accordion-header" data-image="../assets/media/images/dia/genius.png">
+                   
+                    <span class="accordion-title">Abogado de Apoyo</span>
+                    <span class="icon">+</span>
+                </div>
+                <div class="accordion-content">
+                    <p class="medium-gray">Este asistente garantiza a los ciudadanos del mundo una herramienta avanzada para ejercer sus derechos mediante PQRS(D), <br> forma profesional y conforme al marco jurídico vigente.</p>
+                    <a href="https://chatgpt.com/g/g-6813f7afaefc8191b63154abb142c510-abogado-de-apoyo" class="cus-btn" target="_blank" rel="noopener noreferrer">
+                        <span>Acceder</span>
+                    </a>
+                </div>
+            </div>
+    
+        
+        
 
-             <!-- 7 -->
-         <div class="assistant-card" data-category="educacion">
-            <div class="card-image">
-              <img src="../assets/media/images/dia/caso-de.jpeg" alt="Aprende Inglés">
-            </div>
-            <div class="card-content">
-              <h3 class="card-title">Qué Hacer en Caso de...?</h3>
-              <p class="card-description">Guías paso a paso para emergencias, trámites y problemas cotidianos.</p>
-              <a href="https://chatgpt.com/g/g-6752899b85588191b81e92aa39bf9bb9-que-hacer-en-caso-de" class="card-btn" target="_blank">Abrir</a>
-            </div>
-          </div>
-
-          <!-- 8 -->
-         <div class="assistant-card" data-category="educacion">
-            <div class="card-image">
-              <img src="../assets/media/images/dia/guia.png" alt="Aprende Inglés">
-            </div>
-            <div class="card-content">
-              <h3 class="card-title">PQRSD Global</h3>
-              <p class="card-description">Asistente turístico especializado en guiar visitantes internacionales por Colombia.</p>
-              <a href="https://chatgpt.com/g/g-674e7811b05c8191957283d76b5bada9-pqrsd-global-customer-complaints-and-inquiries" class="card-btn" target="_blank">Abrir</a>
-            </div>
-          </div>
-
-          
-          <!-- 9 -->
-         <div class="assistant-card" data-category="educacion">
-            <div class="card-image">
-              <img src="../assets/media/images/ingles-gpt.png" alt="Aprende Inglés">
-            </div>
-            <div class="card-content">
-              <h3 class="card-title">Colombian Tourism</h3>
-              <p class="card-description">Asistente turístico especializado en guiar visitantes internacionales por Colombia.</p>
-              <a href="https://chatgpt.com/g/g-673543bf2bd881908d8c962284865156-colombian-tourism" class="card-btn" target="_blank">Abrir</a>
-            </div>
-          </div>
-
-             <!-- 10 -->
-         <div class="assistant-card" data-category="educacion">
-            <div class="card-image">
-              <img src="../assets/media/images/dia/navidad.jpeg" alt="Aprende Inglés">
-            </div>
-            <div class="card-content">
-              <h3 class="card-title">Novena Navideña</h3>
-              <p class="card-description">Guía de novenas navideñas con personalización de oraciones y canciones festivas.</p>
-              <a href="https://chatgpt.com/g/g-674eac2b66948191b76defbdb1b91017-novena-navidena-asistente-de-voz-o-texto" class="card-btn" target="_blank">Abrir</a>
-            </div>
-          </div>
-
-          <!-- Card 11 -->
-      <div class="assistant-card" data-category="educacion">
-        <div class="card-image">
-          <img src="../assets/media/images/dia/mejores-bares.jpeg" alt="Aprende Inglés">
+        <div class="view-all-wrapper">
+            <a href="ver_todo_dia.html" class="view-all-btn">
+                
+                <span>Ver todo</span>
+            </a>
         </div>
-        <div class="card-content">
-          <h3 class="card-title">Mejores Bares</h3>
-          <p class="card-description"> Encuentra los bares más destacados según tu ciudad y preferencias</p>
-          <a href="https://chatgpt.com/g/g-67528664945081918c86ed117951af41-mejores-bares" class="card-btn" target="_blank">Abrir</a>
-        </div>
-      </div>
-  
-      <!-- Card 12 -->
-      <div class="assistant-card" data-category="educacion">
-        <div class="card-image">
-          <img src="../assets/media/images/dia/comparador-bancos.jpeg" alt="Aprende Inglés">
-        </div>
-        <div class="card-content">
-          <h3 class="card-title">Comparador de Bancos y Condiciones Financieras</h3>
-          <p class="card-description">Compara bancos según tasas de interés, comisiones y productos financieros en tiempo real.</p>
-          <a href="https://chatgpt.com/g/g-6752844acd0c8191b5aa88590099cad9-comparador-de-bancos-y-condiciones-financieras" class="card-btn" target="_blank">Abrir</a>
-        </div>
-      </div>
-  
-      <!-- 13 -->
-      <div class="assistant-card" data-category="educacion">
-        <div class="card-image">
-          <img src="../assets/media/images/dia/p-horizontal.jpeg" alt="Aprende Inglés">
-        </div>
-        <div class="card-content">
-          <h3 class="card-title">Propiedad Horizontal Colombia</h3>
-          <p class="card-description">Información sobre la Ley 675 de 2001 para propietarios y administradores.</p>
-          <a href="https://chatgpt.com/g/g-6752822e2c4c8191845e0391f7fdb76a-asistente-propiedad-horizontal-colombia" class="card-btn" target="_blank">Abrir</a>
-        </div>
-      </div>
-
-         <!-- 15 -->
-         <div class="assistant-card" data-category="educacion">
-            <div class="card-image">
-              <img src="../assets/media/images/dia/inversiones.jpeg" alt="Aprende Inglés">
-            </div>
-            <div class="card-content">
-              <h3 class="card-title">Aprende y Optimiza Tus Inversiones</h3>
-              <p class="card-description">Aprende sobre estrategias financieras y opera en mercados globales.</p>
-              <a href="https://chatgpt.com/g/g-6752858767508191a72815d6382ddd92-aprende-y-optimiza-tus-inversiones-en-la-bolsa" class="card-btn" target="_blank">Abrir</a>
-            </div>
-          </div>
-
-           
     </div>
-  </div>
-</div>
-</div>
-           
+    </div>
+</section>
+
+<div class="section-spacer"></div>
+                 
+
+                    <div class="row testimonials-section mb-32">
+                        <div class="col-lg-12 mb-24">
+                            <h4 class="white text-center">Testimonios</h4>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 mb-24">
+                            <div class="testimonial-card">
+                                <div class="testimonial-header">
+                                    <span class="platform-icon">
+                                        <!-- Facebook icon -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 33" fill="none">
+                                            <!-- ... existing Facebook SVG ... -->
+                                        </svg>
+                                    </span>
+                                    <div class="rating">★★★★★</div>
+                                </div>
+                                <p class="testimonial-text medium-gray">"El asistente legal me ayudó a redactar documentos jurídicos complejos en minutos. Una herramienta invaluable para mi práctica legal."</p>
+                                <div class="testimonial-author">
+                                    <p class="author-name white">Carlos Ramírez</p>
+                                    <p class="author-role">Abogado Senior</p>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="col-lg-3 col-sm-6 mb-24">
+                            <div class="testimonial-card">
+                                <div class="testimonial-header">
+                                    <span class="platform-icon">
+                                        <!-- Google icon -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 33" fill="none">
+                                            <!-- ... existing Google SVG ... -->
+                                        </svg>
+                                    </span>
+                                    <div class="rating">★★★★★</div>
+                                </div>
+                                <p class="testimonial-text medium-gray">"La integración de IA en nuestro departamento legal ha revolucionado nuestra forma de trabajar. Eficiencia y precisión extraordinarias."</p>
+                                <div class="testimonial-author">
+                                    <p class="author-name white">Ana Martínez</p>
+                                    <p class="author-role">Directora Legal</p>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="col-lg-3 col-sm-6 mb-24">
+                            <div class="testimonial-card">
+                                <div class="testimonial-header">
+                                    <span class="platform-icon">
+                                        <!-- LinkedIn icon -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 33" fill="none">
+                                            <!-- ... existing LinkedIn SVG ... -->
+                                        </svg>
+                                    </span>
+                                    <div class="rating">★★★★★</div>
+                                </div>
+                                <p class="testimonial-text medium-gray">"Como profesor de derecho, esta herramienta ha transformado la forma en que enseñamos conceptos jurídicos complejos."</p>
+                                <div class="testimonial-author">
+                                    <p class="author-name white">Dr. José García</p>
+                                    <p class="author-role">Profesor Universitario</p>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="col-lg-3 col-sm-6 mb-24">
+                            <div class="testimonial-card">
+                                <div class="testimonial-header">
+                                    <span class="platform-icon">
+                                        <!-- Custom icon for verified review -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 33" fill="none">
+                                            <!-- ... existing SVG ... -->
+                                        </svg>
+                                    </span>
+                                    <div class="rating">★★★★★</div>
+                                </div>
+                                <p class="testimonial-text medium-gray">"La traducción jurídica automática nos ha permitido expandir nuestros servicios internacionalmente con confianza."</p>
+                                <div class="testimonial-author">
+                                    <p class="author-name white">María López</p>
+                                    <p class="author-role">CEO Firma Legal</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                             
-                
+                    <div class="col-md-12">
+                        <div class="footer_bottom_bar text-center">
+                            <p class="white">© 2024. All rights reserved by TechSync</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </div>
 
     <!-- Scripts -->
